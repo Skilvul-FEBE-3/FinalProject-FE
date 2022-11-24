@@ -1,8 +1,11 @@
 import React from 'react'
+import HeroSection from '../../components/Video/HeroSection'
 
 function ListVideo() {
   return (
-    <div>ListVideo</div>
+    <div>
+      <HeroSection />
+    </div>
   )
 }
 

@@ -23,13 +23,7 @@ function Card() {
 
   return (
     <div>
-      {/* JUDUL CARD */}
-      <h1 className="mt-5 text-center text-textSecondary text-3xl font-semibold">
-        CERITA TERBARU
-      </h1>
-
       {/* card blog */}
-      
       <div className="flex flex-wrap justify-center">
         {isLoading ? (
           <img src={loading} alt="isLoading" className="h-40 sm:h-60 mx-auto" />
