@@ -10,6 +10,8 @@ module.exports = {
         textWhite: "#E6E6E6",
         bgPrimary: "#01A29D",
         bgSekunder: "#DADADA",
+        yellow: "#CFCD06",
+        red: "#DD735D",
       },
     },
   },
