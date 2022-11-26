@@ -1,20 +1,37 @@
-import Footer from "./components/Footer"
-import Header from "./components/Header"
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Dashboard from './pages/Dashboard';
+import Footer from './components/Footer';
+import Header from './components/Header';
+import Login from './components/Login';
+import Users from './pages/Admin/Users';
+import AdminDashboard from './pages/Admin/AdminDashboard';
+import HomeComp from './pages/HomeComp';
+import Register from './components/Register';
+import RequireLogin from './middleware/RequireLogin';
+import RequireAdmin from './middleware/RequireAdmin';
 
 function App() {
   return (
-    <div className="App">
-      {/* Header */}
-      <Header />
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Login />} />
 
-      {/* Body */}
-      
-
-      {/* Footer */}
-      <Footer />
-
-    </div>
-  )
+          <Route path="/register" element={<Register />} />
+          <Route path="/homecomp" element={<HomeComp />} />
+          {/* user */}
+          <Route element={<RequireLogin />}>
+            <Route path="/dashboard" element={<Dashboard />} />
+          </Route>
+          {/* admin */}
+          {/* <Route element={<RequireAdmin />}> */}
+            <Route path="/admin/dashboard" element={<AdminDashboard />} />
+            <Route path="/admin/users" element={<Users />} />
+          {/* </Route> */}
+        </Routes>
+      </div>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
