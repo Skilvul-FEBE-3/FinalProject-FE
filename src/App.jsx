@@ -1,5 +1,6 @@
 import CardBlog from "./components/CardBlog"
 import CardVideo from "./components/CardVideo"
+import FAQ from "./components/FAQ"
 import Footer from "./components/Footer"
 import Header from "./components/Header"
 
@@ -10,7 +11,8 @@ function App() {
       <Header />
 
       {/* Body */}
-      <CardVideo />
+      <FAQ />
+      {/* <CardVideo /> */}
       {/* <CardBlog /> */}
 
       {/* Footer */}
