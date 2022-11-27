@@ -1,249 +1,87 @@
-import React from 'react'
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 
 function CardVideo() {
+
+  const [videos, setVideos] = useState([]);
+
+  useEffect(() => {
+    axios(
+      "https://636ccb0d91576e19e315574a.mockapi.io/blog"
+    ).then((res) => {
+      setVideos(res.data);
+      // setIsLoading(false);
+    });
+  }, []);
+
+
   return (
-    <div>
+    videos.map((item, index) => (
+      <div key={index}>
+      <div className='Container' >
 
       {/* CARD VIDEOS  */}
-      <div className="card flex my-10 mx-[8rem] p-2 bg-white flex-col lg:flex-row rounded-xl sm:mx-[8rem] lg:mx-[10rem] drop-shadow-md transform transition-all hover:translate-y-2 hover:drop-shadow-xl">
+      <div className="card flex my-10 mx-[6rem] p-2 bg-white lg:flex-row rounded-xl md:mx-[10rem] lg:mx-[14rem] drop-shadow-md transform transition-all hover:translate-y-2 hover:drop-shadow-xl"> {/*flex-col*/}
+        <img
+          className="thumbnail rounded-lg h-[120px] mx-auto sm:h-[150px]"
+          src={item.img}
+          alt="thumbnail"
+        />
 
-        <img className='thumbnail rounded-lg w-[350px] mx-auto' src="https://img.freepik.com/free-vector/gradient-mountain-landscape_52683-77407.jpg?w=1060&t=st=1669274509~exp=1669275109~hmac=4e1e55eceecef08020fa1b36e9633f11cf472b752dc1f95076debc8fc0773a84" alt="thumbnail" />
+        {/* TITLE & DESC  */}
+        <div className="card-detail flex flex-col justify-between">
+          <div className="flex font-semibold text-gray-500 text-[8px] md:text-[12px] justify-between">
+            <h5 className="ml-3 p-1">#category</h5>
+            <h6 className="mx-2 p-1">{item.releaseDate}</h6>
+          </div>
 
-          {/* TITLE & DESC  */}
-          <div className="card-detail m-2 flex flex-col justify-between">
+          <div className="mx-4">
+            <h2 className="text-md font-semibold md:font-bold md:text-xl">{item.tittle}</h2>
+            <p className="font-normal text-[8px] text-gray-500 text-justify md:font-semibold md:text-[12px]">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum
+              expedita nostrum at voluptates quam libero. Deleniti, mollitia
+              culpa. Cumque magni perspiciatis deserunt veniam earum commodi et
+              animi ex voluptate nobis.
+            </p>
+          </div>
 
-              <div className="flex font-semibold text-gray-500 justify-between">
-                <h5 className='mr-2 p-2 border-2 rounded-full border-green-200'>#category</h5>
-                <h6 className='ml-2 p-2'>dd/mm/yy</h6>
-              </div>
-
-            <div className="mx-4 my-2">
-              <h2 className='text-lg font-bold sm:text-2xl'>title</h2>
-              <p className='font-medium text-gray-500 text-justify sm:font-semibold'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum expedita nostrum at voluptates quam libero. Deleniti, mollitia culpa. Cumque magni perspiciatis deserunt veniam earum commodi et animi ex voluptate nobis.</p>
+          {/* AUTHOR */}
+          <div className="flex justify-between mx-4">
+            <div className="author flex justify-center items-center">
+              <img
+                className="w-[24px] rounded-full"
+                src="https://static.vecteezy.com/system/resources/thumbnails/006/487/917/small_2x/man-avatar-icon-free-vector.jpg"
+                alt="author"
+              />
+              <p className="mx-2 text-sky-500 font-semibold md:font-bold text-[8px]  md:text-[12px]">
+                {item.author}
+              </p>
             </div>
 
-            {/* AUTHOR */}
-            <div className="flex justify-between mx-2 mt-4">
-              <div className="author flex justify-center items-center">
-                <img className='w-[48px] rounded-full' src="https://static.vecteezy.com/system/resources/thumbnails/006/487/917/small_2x/man-avatar-icon-free-vector.jpg" alt="author" />
-                <p className='mx-2 font-medium text-sky-500 text-md sm:font-bold sm:text-lg'>Author / YT Channel </p>
-              </div>
+            {/* WATCH BUTTON */}
+            <div className="relative flex items-center justify-center px-8 md:px-12 overflow-hidden font-semibold md:font-bold text-blue-400 transition duration-300 ease-out border-2 border-blue-400 rounded-full group">
+              <span className="absolute flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-blue-400 group-hover:translate-x-0 ease">
+                <BsFillArrowRightCircleFill />
+              </span>
 
-              {/* WATCH BUTTON */}
-              <div className="relative flex items-center justify-center px-12 overflow-hidden font-bold text-blue-400 transition duration-300 ease-out border-2 border-blue-400 rounded-full group">
-
-                <span className='absolute flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-blue-400 group-hover:translate-x-0 ease'>
-                  <BsFillArrowRightCircleFill />
-                </span>
-
-                <a href="#" className='absolute flex items-center justify-center w-full h-full text-blue-400 transition-all duration-300 transform group-hover:translate-x-full ease'>Watch!</a>
-                
-              </div>
-
+              <a
+                href="#"
+                className="text-[8px] md:text-[12px] absolute flex items-center justify-center w-full h-full text-blue-400 transition-all duration-300 transform group-hover:translate-x-full ease"
+              >
+                Watch!
+              </a>
             </div>
           </div>
+        </div>
       </div>
 
-      <div className="card flex my-10 mx-[8rem] p-2 bg-white flex-col lg:flex-row rounded-xl sm:mx-[8rem] lg:mx-[10rem] drop-shadow-md transform transition-all hover:translate-y-2 hover:drop-shadow-xl">
-
-<img className='thumbnail rounded-lg w-[350px] mx-auto' src="https://img.freepik.com/free-vector/gradient-mountain-landscape_52683-77407.jpg?w=1060&t=st=1669274509~exp=1669275109~hmac=4e1e55eceecef08020fa1b36e9633f11cf472b752dc1f95076debc8fc0773a84" alt="thumbnail" />
-
-  {/* TITLE & DESC  */}
-  <div className="card-detail m-2 flex flex-col justify-between">
-
-      <div className="flex font-semibold text-gray-500 justify-between">
-        <h5 className='mr-2 p-2 border-2 rounded-full border-green-200'>#category</h5>
-        <h6 className='ml-2 p-2'>dd/mm/yy</h6>
       </div>
-
-    <div className="mx-4 my-2">
-      <h2 className='text-lg font-bold sm:text-2xl'>title</h2>
-      <p className='font-medium text-gray-500 text-justify sm:font-semibold'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum expedita nostrum at voluptates quam libero. Deleniti, mollitia culpa. Cumque magni perspiciatis deserunt veniam earum commodi et animi ex voluptate nobis.</p>
     </div>
-
-    {/* AUTHOR */}
-    <div className="flex justify-between mx-2 mt-4">
-      <div className="author flex justify-center items-center">
-        <img className='w-[48px] rounded-full' src="https://static.vecteezy.com/system/resources/thumbnails/006/487/917/small_2x/man-avatar-icon-free-vector.jpg" alt="author" />
-        <p className='mx-2 font-medium text-sky-500 text-md sm:font-bold sm:text-lg'>Author / YT Channel </p>
-      </div>
-
-      {/* WATCH BUTTON */}
-      <div className="relative flex items-center justify-center px-12 overflow-hidden font-bold text-blue-400 transition duration-300 ease-out border-2 border-blue-400 rounded-full group">
-
-        <span className='absolute flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-blue-400 group-hover:translate-x-0 ease'>
-          <BsFillArrowRightCircleFill />
-        </span>
-
-        <a href="#" className='absolute flex items-center justify-center w-full h-full text-blue-400 transition-all duration-300 transform group-hover:translate-x-full ease'>Watch!</a>
-        
-      </div>
-
-    </div>
-  </div>
-      </div>
-
-      <div className="card flex my-10 mx-[8rem] p-2 bg-white flex-col lg:flex-row rounded-xl sm:mx-[8rem] lg:mx-[10rem] drop-shadow-md transform transition-all hover:translate-y-2 hover:drop-shadow-xl">
-
-<img className='thumbnail rounded-lg w-[350px] mx-auto' src="https://img.freepik.com/free-vector/gradient-mountain-landscape_52683-77407.jpg?w=1060&t=st=1669274509~exp=1669275109~hmac=4e1e55eceecef08020fa1b36e9633f11cf472b752dc1f95076debc8fc0773a84" alt="thumbnail" />
-
-  {/* TITLE & DESC  */}
-  <div className="card-detail m-2 flex flex-col justify-between">
-
-      <div className="flex font-semibold text-gray-500 justify-between">
-        <h5 className='mr-2 p-2 border-2 rounded-full border-green-200'>#category</h5>
-        <h6 className='ml-2 p-2'>dd/mm/yy</h6>
-      </div>
-
-    <div className="mx-4 my-2">
-      <h2 className='text-lg font-bold sm:text-2xl'>title</h2>
-      <p className='font-medium text-gray-500 text-justify sm:font-semibold'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum expedita nostrum at voluptates quam libero. Deleniti, mollitia culpa. Cumque magni perspiciatis deserunt veniam earum commodi et animi ex voluptate nobis.</p>
-    </div>
-
-    {/* AUTHOR */}
-    <div className="flex justify-between mx-2 mt-4">
-      <div className="author flex justify-center items-center">
-        <img className='w-[48px] rounded-full' src="https://static.vecteezy.com/system/resources/thumbnails/006/487/917/small_2x/man-avatar-icon-free-vector.jpg" alt="author" />
-        <p className='mx-2 font-medium text-sky-500 text-md sm:font-bold sm:text-lg'>Author / YT Channel </p>
-      </div>
-
-      {/* WATCH BUTTON */}
-      <div className="relative flex items-center justify-center px-12 overflow-hidden font-bold text-blue-400 transition duration-300 ease-out border-2 border-blue-400 rounded-full group">
-
-        <span className='absolute flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-blue-400 group-hover:translate-x-0 ease'>
-          <BsFillArrowRightCircleFill />
-        </span>
-
-        <a href="#" className='absolute flex items-center justify-center w-full h-full text-blue-400 transition-all duration-300 transform group-hover:translate-x-full ease'>Watch!</a>
-        
-      </div>
-
-    </div>
-  </div>
-      </div>
-
-      <div className="card flex my-10 mx-[8rem] p-2 bg-white flex-col lg:flex-row rounded-xl sm:mx-[8rem] lg:mx-[10rem] drop-shadow-md transform transition-all hover:translate-y-2 hover:drop-shadow-xl">
-
-<img className='thumbnail rounded-lg w-[350px] mx-auto' src="https://img.freepik.com/free-vector/gradient-mountain-landscape_52683-77407.jpg?w=1060&t=st=1669274509~exp=1669275109~hmac=4e1e55eceecef08020fa1b36e9633f11cf472b752dc1f95076debc8fc0773a84" alt="thumbnail" />
-
-  {/* TITLE & DESC  */}
-  <div className="card-detail m-2 flex flex-col justify-between">
-
-      <div className="flex font-semibold text-gray-500 justify-between">
-        <h5 className='mr-2 p-2 border-2 rounded-full border-green-200'>#category</h5>
-        <h6 className='ml-2 p-2'>dd/mm/yy</h6>
-      </div>
-
-    <div className="mx-4 my-2">
-      <h2 className='text-lg font-bold sm:text-2xl'>title</h2>
-      <p className='font-medium text-gray-500 text-justify sm:font-semibold'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum expedita nostrum at voluptates quam libero. Deleniti, mollitia culpa. Cumque magni perspiciatis deserunt veniam earum commodi et animi ex voluptate nobis.</p>
-    </div>
-
-    {/* AUTHOR */}
-    <div className="flex justify-between mx-2 mt-4">
-      <div className="author flex justify-center items-center">
-        <img className='w-[48px] rounded-full' src="https://static.vecteezy.com/system/resources/thumbnails/006/487/917/small_2x/man-avatar-icon-free-vector.jpg" alt="author" />
-        <p className='mx-2 font-medium text-sky-500 text-md sm:font-bold sm:text-lg'>Author / YT Channel </p>
-      </div>
-
-      {/* WATCH BUTTON */}
-      <div className="relative flex items-center justify-center px-12 overflow-hidden font-bold text-blue-400 transition duration-300 ease-out border-2 border-blue-400 rounded-full group">
-
-        <span className='absolute flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-blue-400 group-hover:translate-x-0 ease'>
-          <BsFillArrowRightCircleFill />
-        </span>
-
-        <a href="#" className='absolute flex items-center justify-center w-full h-full text-blue-400 transition-all duration-300 transform group-hover:translate-x-full ease'>Watch!</a>
-        
-      </div>
-
-    </div>
-  </div>
-      </div>
-
-      <div className="card flex my-10 mx-[8rem] p-2 bg-white flex-col lg:flex-row rounded-xl sm:mx-[8rem] lg:mx-[10rem] drop-shadow-md transform transition-all hover:translate-y-2 hover:drop-shadow-xl">
-
-<img className='thumbnail rounded-lg w-[350px] mx-auto' src="https://img.freepik.com/free-vector/gradient-mountain-landscape_52683-77407.jpg?w=1060&t=st=1669274509~exp=1669275109~hmac=4e1e55eceecef08020fa1b36e9633f11cf472b752dc1f95076debc8fc0773a84" alt="thumbnail" />
-
-  {/* TITLE & DESC  */}
-  <div className="card-detail m-2 flex flex-col justify-between">
-
-      <div className="flex font-semibold text-gray-500 justify-between">
-        <h5 className='mr-2 p-2 border-2 rounded-full border-green-200'>#category</h5>
-        <h6 className='ml-2 p-2'>dd/mm/yy</h6>
-      </div>
-
-    <div className="mx-4 my-2">
-      <h2 className='text-lg font-bold sm:text-2xl'>title</h2>
-      <p className='font-medium text-gray-500 text-justify sm:font-semibold'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum expedita nostrum at voluptates quam libero. Deleniti, mollitia culpa. Cumque magni perspiciatis deserunt veniam earum commodi et animi ex voluptate nobis.</p>
-    </div>
-
-    {/* AUTHOR */}
-    <div className="flex justify-between mx-2 mt-4">
-      <div className="author flex justify-center items-center">
-        <img className='w-[48px] rounded-full' src="https://static.vecteezy.com/system/resources/thumbnails/006/487/917/small_2x/man-avatar-icon-free-vector.jpg" alt="author" />
-        <p className='mx-2 font-medium text-sky-500 text-md sm:font-bold sm:text-lg'>Author / YT Channel </p>
-      </div>
-
-      {/* WATCH BUTTON */}
-      <div className="relative flex items-center justify-center px-12 overflow-hidden font-bold text-blue-400 transition duration-300 ease-out border-2 border-blue-400 rounded-full group">
-
-        <span className='absolute flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-blue-400 group-hover:translate-x-0 ease'>
-          <BsFillArrowRightCircleFill />
-        </span>
-
-        <a href="#" className='absolute flex items-center justify-center w-full h-full text-blue-400 transition-all duration-300 transform group-hover:translate-x-full ease'>Watch!</a>
-        
-      </div>
-
-    </div>
-  </div>
-      </div>
-
-      <div className="card flex my-10 mx-[8rem] p-2 bg-white flex-col lg:flex-row rounded-xl sm:mx-[8rem] lg:mx-[10rem] drop-shadow-md transform transition-all hover:translate-y-2 hover:drop-shadow-xl">
-
-<img className='thumbnail rounded-lg w-[350px] mx-auto' src="https://img.freepik.com/free-vector/gradient-mountain-landscape_52683-77407.jpg?w=1060&t=st=1669274509~exp=1669275109~hmac=4e1e55eceecef08020fa1b36e9633f11cf472b752dc1f95076debc8fc0773a84" alt="thumbnail" />
-
-  {/* TITLE & DESC  */}
-  <div className="card-detail m-2 flex flex-col justify-between">
-
-      <div className="flex font-semibold text-gray-500 justify-between">
-        <h5 className='mr-2 p-2 border-2 rounded-full border-green-200'>#category</h5>
-        <h6 className='ml-2 p-2'>dd/mm/yy</h6>
-      </div>
-
-    <div className="mx-4 my-2">
-      <h2 className='text-lg font-bold sm:text-2xl'>title</h2>
-      <p className='font-medium text-gray-500 text-justify sm:font-semibold'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum expedita nostrum at voluptates quam libero. Deleniti, mollitia culpa. Cumque magni perspiciatis deserunt veniam earum commodi et animi ex voluptate nobis.</p>
-    </div>
-
-    {/* AUTHOR */}
-    <div className="flex justify-between mx-2 mt-4">
-      <div className="author flex justify-center items-center">
-        <img className='w-[48px] rounded-full' src="https://static.vecteezy.com/system/resources/thumbnails/006/487/917/small_2x/man-avatar-icon-free-vector.jpg" alt="author" />
-        <p className='mx-2 font-medium text-sky-500 text-md sm:font-bold sm:text-lg'>Author / YT Channel </p>
-      </div>
-
-      {/* WATCH BUTTON */}
-      <div className="relative flex items-center justify-center px-12 overflow-hidden font-bold text-blue-400 transition duration-300 ease-out border-2 border-blue-400 rounded-full group">
-
-        <span className='absolute flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-blue-400 group-hover:translate-x-0 ease'>
-          <BsFillArrowRightCircleFill />
-        </span>
-
-        <a href="#" className='absolute flex items-center justify-center w-full h-full text-blue-400 transition-all duration-300 transform group-hover:translate-x-full ease'>Watch!</a>
-        
-      </div>
-
-    </div>
-  </div>
-      </div>
-
-      {/* </div> */}
-
-    </div>
-  )
+    ))
+      
+      
+  );
 }
 
-export default CardVideo
+export default CardVideo;

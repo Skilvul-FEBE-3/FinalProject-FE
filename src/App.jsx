@@ -11,8 +11,8 @@ function App() {
       <Header />
 
       {/* Body */}
-      <FAQ />
-      {/* <CardVideo /> */}
+      {/* <FAQ /> */}
+      <CardVideo />
       {/* <CardBlog /> */}
 
       {/* Footer */}
