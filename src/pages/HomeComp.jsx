@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 const HomeComp = () => {
   const navigate = useNavigate();
-
+  
   const [user, setUser] = useState([]);
   const [role, setRole] = useState('');
 

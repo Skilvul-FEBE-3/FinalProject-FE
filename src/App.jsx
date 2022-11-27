@@ -20,14 +20,10 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/homecomp" element={<HomeComp />} />
           {/* user */}
-          <Route element={<RequireLogin />}>
-            <Route path="/dashboard" element={<Dashboard />} />
-          </Route>
+          <Route path="/dashboard" element={<Dashboard />} />
           {/* admin */}
-          {/* <Route element={<RequireAdmin />}> */}
-            <Route path="/admin/dashboard" element={<AdminDashboard />} />
-            <Route path="/admin/users" element={<Users />} />
-          {/* </Route> */}
+          <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          <Route path="/admin/users" element={<Users />} />
         </Routes>
       </div>
     </BrowserRouter>

@@ -23,7 +23,7 @@ const Login = () => {
         },
         { withCredentials: true }
       );
-      const decode = await axios.post("http://localhost:5000/auth/me",{token: response.data.token})
+      const decode = await axios.post("https://finalproject-be-production.up.railway.app/auth/me",{token: response.data.token})
       dispatch(addMe(decode))
       dispatch(addToken(response.data.token))
       navigate('/homecomp');
