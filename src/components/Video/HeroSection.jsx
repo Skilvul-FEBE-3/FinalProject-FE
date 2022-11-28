@@ -1,10 +1,10 @@
 import React from "react";
-import Menonton from "../../images/menonton.gif";
+import Menonton from "../../images/menonton.png";
 
 function HeroSection() {
   return (
     <div>
-      <section className="h-[500px] sm:h-[550px] lg:h-[500px] w-full text-bgPrimary  mx-auto">
+      <section className="h-[500px] sm:h-[550px] lg:h-[500px] w-full text-bgPrimary  mx-auto bg-bgOther">
         <div className="h-[500px] sm:h-[500px] lg:h-[500px] lg:flex lg:flex-wrap items-center justify-center gap-2">
           <div className="flex justify-center ">
             <img
@@ -23,8 +23,7 @@ function HeroSection() {
             <br />
             <span className="text-center text-textSecondary mt-2">
               Kumpulan video kamu ada disini <br />
-              Coba scroll kebawah, mungkin ada bisa kamu dengar hari ini.
-              ini.
+              Coba scroll kebawah, mungkin ada bisa kamu dengar hari ini. ini.
             </span>
           </div>
         </div>

@@ -11,7 +11,7 @@ function Team() {
   return (
     <div>
       <div className="mb-10 h-[300px] sm:h-[350px] bg-bgPrimary">
-        <div className="flex items-center gap-3 sm:gap-5 sm:justify-center sm:mx-20 h-[300px] sm:h-[350px]">
+        <div className="flex items-center gap-3 sm:gap-5 sm:justify-between sm:mx-20 h-[300px] sm:h-[350px]">
           <img src={Chandra} alt="" className="h-[200px] sm:h-[300px]" />
           <div className="">
             <p className="text-white text-2xl sm:text-4xl font-semibold">
@@ -33,7 +33,7 @@ function Team() {
       </div>
 
       <div className="sm:mb-10 h-[250px] sm:h-[350px] text-textSecondary">
-        <div className="flex items-center gap-3 sm:gap-5 sm:justify-center mx-5 sm:mx-20">
+        <div className="flex items-center gap-3 sm:gap-5 sm:justify-between mx-5 sm:mx-20">
           <div className="text-2xl items-center">
             <BsGithub className="m-2" />
             <BsInstagram className="m-2" />
@@ -55,7 +55,7 @@ function Team() {
       </div>
 
       <div className="mb-10 h-[300px] sm:h-[350px] bg-bgPrimary">
-        <div className="flex items-center gap-3 sm:gap-5 sm:justify-center sm:mx-20 h-[300px] sm:h-[350px]">
+        <div className="flex items-center gap-3 sm:gap-5 sm:justify-between sm:mx-20 h-[300px] sm:h-[350px]">
           <img src={Sofi} alt="" className="h-[200px] sm:h-[300px]" />
           <div className="">
             <p className="text-white text-2xl sm:text-4xl font-semibold">
@@ -77,7 +77,7 @@ function Team() {
       </div>
 
       <div className="sm:mb-10 h-[250px] sm:h-[350px] text-textSecondary">
-        <div className="flex items-center gap-3 sm:gap-5 sm:justify-center mx-5 sm:mx-20">
+        <div className="flex items-center gap-3 sm:gap-5 sm:justify-between mx-5 sm:mx-20">
           <div className="text-2xl items-center">
             <BsGithub className="m-2" />
             <BsInstagram className="m-2" />
@@ -96,7 +96,7 @@ function Team() {
       </div>
 
       <div className="mb-10 h-[300px] sm:h-[350px] bg-bgPrimary">
-        <div className="flex items-center gap-3 sm:gap-5 sm:justify-center sm:mx-20 h-[300px] sm:h-[350px]">
+        <div className="flex items-center gap-3 sm:gap-5 sm:justify-between sm:mx-20 h-[300px] sm:h-[350px]">
           <img src={Dwi} alt="" className="h-[200px] sm:h-[300px]" />
           <div className="">
             <p className="text-white text-2xl sm:text-4xl font-semibold">Dwi</p>
@@ -116,7 +116,7 @@ function Team() {
       </div>
 
       <div className="mb-10 h-[250px] sm:h-[350px] text-textSecondary">
-        <div className="flex items-center gap-3 sm:gap-5 sm:justify-center mx-5 sm:mx-20">
+        <div className="flex items-center gap-3 sm:gap-5 sm:justify-between mx-5 sm:mx-20">
           <div className="text-2xl items-center">
             <BsGithub className="m-2" />
             <BsInstagram className="m-2" />
@@ -133,6 +133,7 @@ function Team() {
           <img src={Suca} alt="" className="h-[200px] sm:h-[300px]" />
         </div>
       </div>
+
     </div>
   );
 }

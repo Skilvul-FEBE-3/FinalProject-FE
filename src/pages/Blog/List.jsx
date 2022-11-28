@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "../../components/Blog/Card";
+import CardBlog from "../../components/Blog/CardBlog";
 import HeroSection from "../../components/Blog/HeroSection";
 
 function ListBlog() {
@@ -7,7 +7,7 @@ function ListBlog() {
     <div>
       <HeroSection />
       <div className="mb-20">
-        <Card />
+        <CardBlog />
       </div>
     </div>
   );

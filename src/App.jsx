@@ -23,7 +23,9 @@ function App() {
       </Routes>
 
       {/* Footer */}
-      <Footer />
+      <div className="h-[100px] sm:h-[300px] flex flex-wrap items-end">
+        <Footer />
+      </div>
     </div>
   );
 }
