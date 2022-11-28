@@ -79,12 +79,13 @@ function CardVideo() {
             <img src={Empty} alt="isLoading" className="h-60 sm:h-80 mx-auto" />
           </div>
         ) : (
+
           videos.map((item, index) => (
 
-          <div key={index} onClick={() => clickBlog(item)}>
-      
-            {/* CARD VIDEOS  */}
-            <div className="card flex my-10 mx-[6rem] p-2 bg-white lg:flex-row rounded-xl md:mx-[10rem] lg:mx-[14rem] drop-shadow-md transform transition-all hover:translate-y-2 hover:drop-shadow-xl"> {/flex-col/}
+          <div key={index}>
+            
+              {/* CARD VIDEOS  */}
+              <div className="card flex my-10 mx-[6rem] p-2 bg-white lg:flex-row rounded-xl md:mx-[10rem] lg:mx-[14rem] drop-shadow-md transform transition-all hover:translate-y-2 hover:drop-shadow-xl">
               <img
                 className="thumbnail rounded-lg h-[120px] mx-auto sm:h-[150px]"
                 src={item.img}
@@ -113,7 +114,7 @@ function CardVideo() {
                   <div className="author flex justify-center items-center">
                     <img
                       className="w-[24px] rounded-full"
-                      src="https://static.vecteezy.com/system/resources/thumbnails/006/487/917/small_2x/man-avatar-icon-free-vector.jpg"
+                      src={item.img}
                       alt="author"
                     />
                     <p className="mx-2 text-sky-500 font-semibold md:font-bold text-[8px]  md:text-[12px]">
@@ -137,6 +138,7 @@ function CardVideo() {
                 </div>
               </div>
             </div>
+          
           </div>
 
           ))
