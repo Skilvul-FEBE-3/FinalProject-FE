@@ -1,10 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Loading from "../../images/loading2.gif"
+import Loading from "../../images/loading2.gif";
 import Empty from "../../images/empty.gif";
 
-function Card() {
+function CardBlog() {
   const navigation = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
   const [searching, setSearching] = useState("");
@@ -75,7 +75,6 @@ function Card() {
         ) : !blogs || blogs == "" ? (
           <div className="flex justify-center font-mono font-semibold text-[#295454]">
             <img src={Empty} alt="isLoading" className="h-60 sm:h-80 mx-auto" />
-            
           </div>
         ) : (
           blogs.map((item, index) => (
@@ -132,4 +131,4 @@ function Card() {
   );
 }
 
-export default Card;
+export default CardBlog;
