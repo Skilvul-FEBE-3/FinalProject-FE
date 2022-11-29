@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import Logo from "../../images/MentalHack.png"
 import Hero from "../../images/Dokter.png"
 
-export const Login = () => {
+export const Login = (props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -29,8 +29,8 @@ export const Login = () => {
                             <label htmlFor="password" className="mt-4 text-lg font-semibold block text-[#E6E6E6]">Password</label>
                             <input value={password} onChange={(e) => setPassword(e.target.value)}  type="password" placeholder="********" className="text-lg px-2 py-1 rounded-xl w-full mb-4" />
                             <h1 className='text-[#E6E6E6]'>
-                                Belum memiliki akun? 
-                                <a href="/" className="font-semibold"> Daftar disini.</a>
+                                Belum memiliki akun?<span> </span>
+                                <button onClick={() => props.onFormSwitch('register')} className="font-semibold">Daftar disini.</button>
                             </h1>
                             <div className=" mt-12 mb-8 flex justify-end w-full">
                                 <button type="submit" className="block py-2 px-6 bg-[#006969] rounded-full w-full text-lg font-bold text-[#E6E6E6]">Masuk</button>
