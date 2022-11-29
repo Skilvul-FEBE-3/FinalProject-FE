@@ -2,13 +2,14 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
 import Footer from './components/Footer';
 import Header from './components/Header';
-import Login from './components/Login';
+import Login from './pages/Login';
 import Users from './pages/Admin/Users';
 import AdminDashboard from './pages/Admin/AdminDashboard';
 import HomeComp from './pages/HomeComp';
 import Register from './components/Register';
 import RequireLogin from './middleware/RequireLogin';
 import RequireAdmin from './middleware/RequireAdmin';
+import 
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<Login />} />
 
           <Route path="/register" element={<Register />} />
+
           <Route path="/homecomp" element={<HomeComp />} />
           {/* user */}
           <Route path="/dashboard" element={<Dashboard />} />
@@ -31,29 +33,3 @@ function App() {
 }
 
 export default App;
-
-// import CardBlog from "./components/CardBlog"
-// import CardVideo from "./components/CardVideo"
-// import FAQ from "./components/FAQ"
-// import Footer from "./components/Footer"
-// import Header from "./components/Header"
-
-// function App() {
-//   return (
-//     <div className="App bg-green-100 w-full min-h-screen">
-//       {/* Header */}
-//       <Header />
-
-//       {/* Body */}
-//       {/* <FAQ /> */}
-//       <CardVideo />
-//       {/* <CardBlog /> */}
-
-//       {/* Footer */}
-//       {/* <Footer /> */}
-
-//     </div>
-//   )
-// }
-
-// export default App
