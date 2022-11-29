@@ -1,9 +1,16 @@
-import React from 'react'
+import React from "react";
+import CardBlog from "../../components/Blog/CardBlog";
+import HeroSection from "../../components/Blog/HeroSection";
 
 function ListBlog() {
   return (
-    <div>ListBlog</div>
-  )
+    <div>
+      <HeroSection />
+      <div className="mb-20">
+        <CardBlog />
+      </div>
+    </div>
+  );
 }
 
-export default ListBlog
+export default ListBlog;
