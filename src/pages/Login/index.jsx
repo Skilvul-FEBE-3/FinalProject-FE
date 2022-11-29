@@ -7,7 +7,7 @@ export const Login = (props) => {
   const [password, setPassword] = useState('');
 
   const handleSubmit = (e) => {
-    e.prevenDefault();
+    e.preventDefault();
   //   console.log(email);
   }
 
