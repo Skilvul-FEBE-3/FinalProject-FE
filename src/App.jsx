@@ -5,6 +5,8 @@ import About from "./pages/About/About";
 import DetailBLog from "./pages/Blog/Detail";
 import ListBlog from "./pages/Blog/List";
 import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 import ListVideo from "./pages/Video/List";
 
 function App() {
@@ -20,6 +22,8 @@ function App() {
         <Route path="/blog:id" element={<DetailBLog />}></Route>
         <Route path="/video" element={<ListVideo />}></Route>
         <Route path="/team" element={<About />}></Route>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/register" element={<Register />}></Route>
       </Routes>
 
       {/* Footer */}

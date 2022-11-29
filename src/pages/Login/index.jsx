@@ -1,8 +1,11 @@
 import React from 'react'
+import LoginComponents from '../../components/Login'
 
 function Login() {
   return (
-    <div>Login</div>
+    <div className='bg-bgOther'>
+      <LoginComponents/>
+    </div>
   )
 }
 
