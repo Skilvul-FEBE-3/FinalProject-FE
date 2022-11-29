@@ -122,16 +122,16 @@ function CardVideo() {
 
                   {/* WATCH BUTTON */}
                   <div className="relative flex items-center justify-center px-8 md:px-12 overflow-hidden font-semibold md:font-bold text-blue-400 transition duration-300 ease-out border-2 border-blue-400 rounded-full group">
-                    <span className="absolute flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-blue-400 group-hover:translate-x-0 ease">
+                    <span className="absolute flex items-center justify-center w-full h-full text-blue-400 duration-300 -translate-x-full bg-white group-hover:translate-x-0 ease">
                       <BsFillArrowRightCircleFill />
                     </span>
 
-                    <a
-                      href="#"
+                    <button
+                      onClick={() => handleDetail(item.id)}
                       className="text-[8px] md:text-[12px] absolute flex items-center justify-center w-full h-full text-blue-400 transition-all duration-300 transform group-hover:translate-x-full ease"
                     >
                       Watch!
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>

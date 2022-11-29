@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Logo from "../../images/logo.png";
 import Hero from "../../images/Dokter.png";
 
-function Login() {
+function LoginComponents() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -78,4 +78,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default LoginComponents;
