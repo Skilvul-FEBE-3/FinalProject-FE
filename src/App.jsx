@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { Route, Router, Routes } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
@@ -11,12 +12,22 @@ import ListVideo from "./pages/Video/List";
 import DetailVideo from "./pages/Video/Detail";
 
 function App() {
+  // Form Login & Register Toggle Function
+  const [currentForm, setCurrentForm] = useState('login');
+  
+  const toggleForm = (formName) => {
+    setCurrentForm(formName);
+  }
+
   return (
     <div className="App">
       {/* Header */}
       <Header />
 
       {/* Body */}
+      {
+        currentForm === "login" ? <Login onFormSwitch={toggleForm} /> : <Register onFormSwitch={toggleForm} />
+      }
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/blog" element={<ListBlog />}></Route>
