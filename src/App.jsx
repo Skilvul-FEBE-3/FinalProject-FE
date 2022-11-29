@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import ListVideo from "./pages/Video/List";
+import DetailVideo from "./pages/Video/Detail";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/blog" element={<ListBlog />}></Route>
         <Route path="/blog:id" element={<DetailBLog />}></Route>
         <Route path="/video" element={<ListVideo />}></Route>
+        <Route path="/video:id" element={<DetailVideo />}></Route>
         <Route path="/team" element={<About />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>
