@@ -1,32 +1,32 @@
-import { Route, Router, Routes } from "react-router-dom";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-// import About from "./pages/About/About";
-// import DetailBLog from "./pages/Blog/Detail";
-// import ListBlog from "./pages/Blog/List";
-import Home from "./pages/Home";
-import ListVideo from "./pages/Video/List";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Dashboard from './pages/Dashboard';
+import Footer from './components/Footer';
+import Header from './components/Header';
+import Login from './components/Login';
+import Users from './pages/Admin/Users';
+import AdminDashboard from './pages/Admin/AdminDashboard';
+import HomeComp from './pages/HomeComp';
+import Register from './components/Register';
+import RequireLogin from './middleware/RequireLogin';
+import RequireAdmin from './middleware/RequireAdmin';
 
 function App() {
   return (
-    <div className="App">
-      {/* Header */}
-      <Header />
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Login />} />
 
-      {/* Body */}
-      <Routes>
-        <Route path="/" element={<Home />}></Route>
-        {/* <Route path="/blog" element={<ListBlog />}></Route> */}
-        {/* <Route path="/blog:id" element={<DetailBLog />}></Route> */}
-        <Route path="/video" element={<ListVideo />}></Route>
-        {/* <Route path="/team" element={<About />}></Route> */}
-      </Routes>
-
-      {/* Footer */}
-      <div className="h-[100px] sm:h-[300px] flex flex-wrap items-end">
-        <Footer />
+          <Route path="/register" element={<Register />} />
+          <Route path="/homecomp" element={<HomeComp />} />
+          {/* user */}
+          <Route path="/dashboard" element={<Dashboard />} />
+          {/* admin */}
+          <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          <Route path="/admin/users" element={<Users />} />
+        </Routes>
       </div>
-    </div>
+    </BrowserRouter>
   );
 }
 
