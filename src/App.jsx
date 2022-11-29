@@ -10,8 +10,8 @@ function App() {
       <Header />
 
       {/* Body */}
-      <CardVideo />
-      {/* <CardBlog /> */}
+      {/* <CardVideo /> */}
+      <CardBlog />
 
       {/* Footer */}
       {/* <Footer /> */}
