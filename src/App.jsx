@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import React, { useState } from 'react';
 import Dashboard from './pages/Dashboard';
 import Footer from './components/Footer';
 import Header from './components/Header';
@@ -14,21 +15,39 @@ import Test from './pages/Test';
 import AddBlog from './pages/Admin/AddBlog';
 import ListVideo from './pages/Video/List';
 import About from './pages/About/About';
+import DetailBLog from './pages/Blog/Detail';
+import DetailVideo from './pages/Video/Detail';
+import Home from './pages/Home';
+import Register from './pages/Register';
 
 function App() {
+  // Form Login & Register Toggle Function
+  const [currentForm, setCurrentForm] = useState('login');
+
+  const toggleForm = (formName) => {
+    setCurrentForm(formName);
+  };
+
   return (
     <BrowserRouter>
       <div className="App">
         <Routes>
-          <Route path="/" element={<Login />} />
-
+          {/* Body */}
+          {currentForm === 'login' ? (
+            <Login onFormSwitch={toggleForm} />
+          ) : (
+            <Register onFormSwitch={toggleForm} />
+          )}
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-
           <Route path="/homecomp" element={<HomeComp />} />
           {/* user */}
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/blog" element={<ListBlog />} />
+          <Route path="/blog:id" element={<DetailBLog />}></Route>
           <Route path="/video" element={<ListVideo />} />
+          <Route path="/video:id" element={<DetailVideo />}></Route>
           <Route path="/team" element={<About />} />
           <Route path="/test" element={<Test />} />
           {/* admin */}
