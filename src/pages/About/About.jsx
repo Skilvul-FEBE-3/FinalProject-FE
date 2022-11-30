@@ -1,13 +1,14 @@
 import React from 'react'
 import HeroSection from '../../components/About/HeroSection'
 import Team from '../../components/About/Team'
+import Layout from '../Layout'
 
 function About() {
   return (
-    <div>
+    <Layout>
         <HeroSection />
         <Team />
-    </div>
+    </Layout>
   )
 }
 

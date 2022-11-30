@@ -4,11 +4,15 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import "./index.css";
 import "./style.css";
+import axios from 'axios';
+import { Provider } from 'react-redux';
+import { store } from './app/store';
+axios.defaults.withCredentials = true;
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <BrowserRouter>
+ReactDOM.createRoot(document.getElementById('root')).render(
+  // <React.StrictMode>
+    <Provider store={store}>
       <App />
-    </BrowserRouter>
-  </React.StrictMode>
+    </Provider>
+  // </React.StrictMode>
 );

@@ -1,5 +1,5 @@
 import React from "react";
-import Grafik from "../../images/grafik.gif";
+import Grafik from "/images/grafik.gif";
 
 function HeroSection2() {
   return (

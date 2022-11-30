@@ -1,5 +1,5 @@
 import React from 'react'
-import Team from "../../images/team.png";
+import Team from "/images/team.png";
 
 function HeroSection() {
   return (

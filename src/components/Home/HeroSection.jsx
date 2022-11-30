@@ -1,5 +1,5 @@
 import React from "react";
-import Otak from "../../images/otak.gif";
+import Otak from "/images/otak.gif";
 
 function HeroSection() {
   return (

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import loading from "../../images/loading2.gif";
+import loading from "/images/loading2.gif";
 import axios from "axios";
 
 function Card() {

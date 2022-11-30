@@ -1,5 +1,5 @@
 import React from "react";
-import User from "../../images/user.png";
+import User from "/images/user.png";
 
 function Comment() {
   return (

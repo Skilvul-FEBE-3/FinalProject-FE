@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import MentalHack from "../images/MentalHack.png";
+import MentalHack from "/images/MentalHack.png";
 import { BiUserCircle } from "react-icons/bi";
 
 function Header() {
@@ -19,7 +19,7 @@ function Header() {
               {/* Primary Navbar Items */}
               <div className="hidden md:flex flex-nowrap justify-around items-center py-1 px-2 text-[12px] sm:text-[16px] w-full sm:w-auto sm:mx-8 font-semibold text-textWhite">
                 <Link
-                  to={"/"}
+                  to={"/dashboard"}
                   className="mx-2 mt-4 sm:mt-0 sm:mr-6 hover:font-bold"
                 >
                   Beranda
