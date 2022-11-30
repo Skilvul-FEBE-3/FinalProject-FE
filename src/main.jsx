@@ -6,7 +6,7 @@ import "./index.css";
 import "./style.css";
 import axios from 'axios';
 import { Provider } from 'react-redux';
-import store from './redux/store';
+import { store } from './app/store';
 axios.defaults.withCredentials = true;
 
 ReactDOM.createRoot(document.getElementById('root')).render(

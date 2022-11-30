@@ -9,7 +9,11 @@ import HomeComp from './pages/HomeComp';
 import Register from './components/Register';
 import RequireLogin from './middleware/RequireLogin';
 import RequireAdmin from './middleware/RequireAdmin';
-import 
+import ListBlog from './pages/Blog/List';
+import Test from './pages/Test';
+import AddBlog from './pages/Admin/AddBlog';
+import ListVideo from './pages/Video/List';
+import About from './pages/About/About';
 
 function App() {
   return (
@@ -23,9 +27,14 @@ function App() {
           <Route path="/homecomp" element={<HomeComp />} />
           {/* user */}
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/blog" element={<ListBlog />} />
+          <Route path="/video" element={<ListVideo />} />
+          <Route path="/team" element={<About />} />
+          <Route path="/test" element={<Test />} />
           {/* admin */}
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
           <Route path="/admin/users" element={<Users />} />
+          <Route path="/admin/addblog" element={<AddBlog />} />
         </Routes>
       </div>
     </BrowserRouter>
