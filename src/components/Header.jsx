@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import MentalHack from "../images/MentalHack.png";
+import MentalHack from "/images/MentalHack.png";
 import { BiUserCircle } from "react-icons/bi";
 
 function Header() {

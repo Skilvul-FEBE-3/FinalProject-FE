@@ -1,10 +1,10 @@
 import React from "react";
-import Chandra from "../../images/3.png";
-import Zaky from "../../images/8.png";
-import Thobie from "../../images/4.png";
-import Dwi from "../../images/7.png";
-import Sofi from "../../images/5.png";
-import Suca from "../../images/6.png";
+import Chandra from "/images/3.png";
+import Zaky from "/images/8.png";
+import Thobie from "/images/4.png";
+import Dwi from "/images/7.png";
+import Sofi from "/images/5.png";
+import Suca from "/images/6.png";
 import { BsInstagram, BsLinkedin, BsGithub } from "react-icons/bs";
 
 function Team() {

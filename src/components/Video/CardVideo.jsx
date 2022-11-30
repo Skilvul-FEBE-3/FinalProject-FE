@@ -2,8 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
-import Loading from "../../images/loading2.gif";
-import Empty from "../../images/empty.gif";
+import Loading from "/images/loading2.gif";
+import Empty from "/images/empty.gif";
 
 function CardVideo() {
   const navigation = useNavigate();

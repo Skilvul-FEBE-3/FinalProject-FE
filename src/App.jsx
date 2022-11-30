@@ -18,7 +18,7 @@ import About from './pages/About/About';
 import DetailBLog from './pages/Blog/Detail';
 import DetailVideo from './pages/Video/Detail';
 import Home from './pages/Home';
-import Register from './pages/Register';
+// import Register from './pages/Register';
 
 function App() {
   // Form Login & Register Toggle Function
@@ -33,11 +33,11 @@ function App() {
       <div className="App">
         <Routes>
           {/* Body */}
-          {currentForm === 'login' ? (
+          {/* {currentForm === 'login' ? (
             <Login onFormSwitch={toggleForm} />
           ) : (
             <Register onFormSwitch={toggleForm} />
-          )}
+          )} */}
           <Route path="/" element={<Home />}></Route>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
