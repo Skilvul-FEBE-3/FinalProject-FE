@@ -1,24 +1,36 @@
 import axios from 'axios';
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import Comment from '../components/Home/Comment';
+import HeroSection from '../components/Home/HeroSection';
+import HeroSection2 from '../components/Home/HeroSection2';
+import HeroSection3 from '../components/Home/HeroSection3';
 import Navbar from '../components/Navbar';
+import { getMe } from '../features/authSlice';
 import Layout from './Layout';
 
 const Dashboard = () => {
-  const { token } = useSelector((state) => state.auth);
-  const { me } = useSelector((state) => state.auth);
-  console.log(me);
-  console.log(localStorage.getItem('token'));
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { isError } = useSelector((state) => state.auth);
 
-  
-  // const getMe = () => {
-  //   const token = localStorage.getItem('token')
-  //   axios.get
-  // }
-  
+  useEffect(() => {
+    dispatch(getMe());
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (isError) {
+      navigate('/');
+    }
+  }, [isError, navigate]);
   return (
     <Layout>
-      <h1>hai ini dashboard {token}</h1>
+      <HeroSection />
+      <HeroSection3 />
+
+      <HeroSection2 />
+      <Comment />
     </Layout>
   );
 };
