@@ -1,13 +1,15 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Loading from "../../images/loading2.gif";
-import Empty from "../../images/empty.gif";
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Loading from '/images/loading2.gif';
+import Empty from '/images/empty.gif';
+import { useDispatch, useSelector } from 'react-redux';
 
 function CardBlog() {
   const navigation = useNavigate();
+  const dispatch = useDispatch();
+  const [searching, setSearching] = useState('');
   const [isLoading, setIsLoading] = useState(true);
-  const [searching, setSearching] = useState("");
   const [blogs, setBlogs] = useState([]);
 
   const searchBlog = (e) => {
@@ -16,23 +18,29 @@ function CardBlog() {
       `https://636ccb0d91576e19e315574a.mockapi.io/blog?tittle=${searching}`
     ).then((res) => {
       setBlogs(res.data);
-      setIsLoading(false);
     });
   };
 
   useEffect(() => {
-    axios(
-      "https://636ccb0d91576e19e315574a.mockapi.io/blog?page=1&limit=6"
-    ).then((res) => {
-      setBlogs(res.data);
-      setIsLoading(false);
-    });
+    getBlogs();
   }, []);
 
+  const getBlogs = async () => {
+    const response = await axios.get(
+      'https://finalproject-be-production.up.railway.app/blog',
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      }
+    );
+    setBlogs(response.data);
+    setIsLoading(false)
+  };
   console.log(blogs);
 
   const clickBlog = (item) => {
-    console.log("berhasil klik");
+    console.log('berhasil klik');
     console.log(item);
   };
 
@@ -72,7 +80,7 @@ function CardBlog() {
       <div className="flex flex-wrap justify-center">
         {isLoading ? (
           <img src={Loading} alt="isLoading" className="h-40 sm:h-60 mx-auto" />
-        ) : !blogs || blogs == "" ? (
+        ) : !blogs || blogs == '' ? (
           <div className="flex justify-center font-mono font-semibold text-[#295454]">
             <img src={Empty} alt="isLoading" className="h-60 sm:h-80 mx-auto" />
           </div>
@@ -89,7 +97,7 @@ function CardBlog() {
                     />
                     <div className="px-5 py-3">
                       <h5 className="mb-2 sm:text-xl font-bold tracking-tight">
-                        {item.tittle}
+                        {item.title}
                       </h5>
                       <p className="mb-3 text-sm font-normal text-gray-500 dark:text-gray-400 truncate">
                         {item.descContent}

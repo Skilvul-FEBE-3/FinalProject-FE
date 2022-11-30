@@ -1,5 +1,5 @@
 import React from 'react'
-import Buku from "../../images/buku.png";
+import Buku from "/images/buku.png";
 
 function HeroSection() {
   return (
