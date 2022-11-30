@@ -4,7 +4,7 @@ import HeroSection from "../../components/Blog/HeroSection";
 
 function ListBlog() {
   return (
-    <div>
+    <div className="">
       <HeroSection />
       <div className="mb-20">
         <CardBlog />

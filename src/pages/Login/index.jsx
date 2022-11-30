@@ -1,12 +1,26 @@
-import React from 'react'
-import LoginComponents from '../../components/Login'
+import React, { useState } from "react";
+import Logo from "../../images/MentalHack.png";
+import Hero from "../../images/Dokter.png";
+import HeroBg from "../../images/hero-bg.png";
+import LoginCard from "../../components/Login";
 
-function Login() {
+function Login(props) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    //   console.log(email);
+  };
   return (
-    <div className='bg-bgOther'>
-      <LoginComponents/>
+    <div>
+      {/*
+       */}
+      <div>
+        <LoginCard />
+      </div>
     </div>
-  )
+  );
 }
 
-export default Login
+export default Login;

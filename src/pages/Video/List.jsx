@@ -8,7 +8,7 @@ function ListVideo() {
       <HeroSection />
       <CardVideo />
     </div>
-  )
+  );
 }
 
 export default ListVideo

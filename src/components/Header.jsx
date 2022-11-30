@@ -42,6 +42,12 @@ function Header() {
                 >
                   About Us
                 </Link>
+                <Link
+                  to={"/faq"}
+                  className="mx-2 mt-4 sm:mt-0 sm:mr-6 hover:font-bold"
+                >
+                  FAQ
+                </Link>
               </div>
               <div className="flex items-center gap-2 py-1 px-2 text-[12px] sm:text-[16px] w-full sm:w-auto sm:mx-8 font-semibold text-textWhite">
                 <Link
