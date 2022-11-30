@@ -2,40 +2,38 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { getMe } from '../features/authSlice';
 
 const HomeComp = () => {
   const navigate = useNavigate();
-  
-  const [user, setUser] = useState([]);
-  const [role, setRole] = useState('');
+  const dispatch = useDispatch();
+  const { user, isError, isSuccess, isLoading, message } = useSelector(
+    (state) => state.auth
+  );
 
   useEffect(() => {
-    getMe();
-  }, []);
-
-  const getMe = async () => {
-    let users = await axios.post(
-      'https://finalproject-be-production.up.railway.app/auth/me',
-      {
-        token: localStorage.getItem('token'),
-      },
-      { withCredentials: true }
-    );
-    setUser(users);
-    setRole(users.data.role);
+    me();
+  }, [dispatch]);
+  const me = () => {
+    dispatch(getMe());
   };
+  useEffect(() => {
+    if (user && user.role == 'admin') {
+      navigate('/admin/dashboard');
+    }
+    
+    if (user && user.role == 'user') {
+      navigate('/dashboard');
+    }
+  }, [user]);
+  useEffect(() => {
+    if (message && isError) {
+      alert(message)
+      navigate('/')
+    }
+  }, [isError])
+  
 
-  if (!user) {
-    navigate('/login');
-  }
-
-  if (role == 'admin') {
-    navigate('/admin/dashboard');
-  }
-
-  if (role == 'user') {
-    navigate('/dashboard');
-  }
 };
 
 export default HomeComp;
