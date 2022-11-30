@@ -22,13 +22,21 @@ function CardVideo() {
   };
 
   useEffect(() => {
-    axios(
-      "https://636ccb0d91576e19e315574a.mockapi.io/blog?page=1&limit=6"
-    ).then((res) => {
-      setVideos(res.data);
-      setIsLoading(false);
-    });
+    getVideo();
   }, []);
+
+  const getVideo = async () => {
+    const response = await axios.get(
+      'https://finalproject-be-production.up.railway.app/video',
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      }
+    );
+    setVideos(response.data);
+    setIsLoading(false)
+  };
 
   console.log(videos);
 
