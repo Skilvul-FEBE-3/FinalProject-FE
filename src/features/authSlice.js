@@ -18,11 +18,12 @@ export const LoginUser = createAsyncThunk(
   async (user, thunkAPI) => {
     try {
       const response = await axios.post(
-        'https://finalproject-be-production.up.railway.app/auth/login',
+        `https://finalproject-be-production.up.railway.app/auth/login`,
         {
           email: user.email,
           password: user.password,
-        }
+        },
+        { withCredentials: true }
       );
       localStorage.setItem('token', response.data.token);
       return response.data;
@@ -38,7 +39,7 @@ export const LoginUser = createAsyncThunk(
 export const getMe = createAsyncThunk('auth/getMe', async (_, thunkAPI) => {
   try {
     const response = await axios.post(
-      'https://finalproject-be-production.up.railway.app/auth/me',
+      `https://finalproject-be-production.up.railway.app/auth/me`,
       { token: localStorage.getItem('token') },
       { withCredentials: true }
     );

@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import Loading from "/images/loading2.gif";
 import Empty from "/images/empty.gif";
@@ -44,10 +44,7 @@ function CardVideo() {
     console.log("berhasil klik");
     console.log(item);
   };
-
-  const handleDetail = (id) => {
-    navigation(`/blog/${id}`);
-  };
+  console.log(videos);
 
   return (
     <div>
@@ -92,7 +89,7 @@ function CardVideo() {
             <div className="card flex my-10 mx-[6rem] p-2 bg-white lg:flex-row rounded-xl md:mx-[10rem] lg:mx-[14rem] drop-shadow-md transform transition-all hover:translate-y-2 hover:drop-shadow-xl">
               <img
                 className="thumbnail rounded-lg h-[120px] mx-auto sm:h-[150px]"
-                src={item.img}
+                src={`https://img.youtube.com/vi/${item.videoId}/mqdefault.jpg`}
                 alt="thumbnail"
               />
 
@@ -134,12 +131,12 @@ function CardVideo() {
                       <BsFillArrowRightCircleFill />
                     </span>
 
-                    <button
-                      onClick={() => handleDetail(item.id)}
+                    <Link
+                      to={`detail/${item.id}`}
                       className="text-[8px] md:text-[12px] absolute flex items-center justify-center w-full h-full text-blue-400 transition-all duration-300 transform group-hover:translate-x-full ease"
                     >
                       Watch!
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>

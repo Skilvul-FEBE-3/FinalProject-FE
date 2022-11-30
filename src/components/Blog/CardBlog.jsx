@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Loading from '/images/loading2.gif';
 import Empty from '/images/empty.gif';
+import { BsFillArrowRightCircleFill } from 'react-icons/bs';
 import { useDispatch, useSelector } from 'react-redux';
 
 function CardBlog() {
@@ -35,7 +36,7 @@ function CardBlog() {
       }
     );
     setBlogs(response.data);
-    setIsLoading(false)
+    setIsLoading(false);
   };
   console.log(blogs);
 
@@ -47,9 +48,16 @@ function CardBlog() {
   const handleDetail = (id) => {
     navigation(`/blog/${id}`);
   };
+
+  const splitdate = (date) => {
+    let splitT = date.split('T');
+    let splitStrip = splitT[0].split('-')
+    var months = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
+    return `${splitStrip[2]}  ${months[splitStrip[1]]}  ${splitStrip[0]}`
+  };
   return (
     <div>
-      <section className="p-12 sm:p-auto  bg-white">
+      <section className="p-12 sm:p-auto  bg-green-100">
         <header className="w-full mx-auto text-center">
           <h1 className="font-bold text-2xl sm:text-4xl text-center text-[#006969]">
             Cari
@@ -88,79 +96,54 @@ function CardBlog() {
           blogs.map((item, index) => (
             <div key={index} onClick={() => clickBlog(item)}>
               <div key={index} onClick={() => clickBlog(item)}>
-                {/* <div>
-                  <div className="m-5 w-[200px] sm:w-[300px] bg-white hover:bg-textSecondary border border-gray-100 rounded-xl shadow-md text-textSecondary hover:text-white">
-                    <img
-                      src={item.img}
-                      alt="sample img"
-                      className="rounded-xl"
-                    />
-                    <div className="px-5 py-3">
-                      <h5 className="mb-2 sm:text-xl font-bold tracking-tight">
-                        {item.title}
-                      </h5>
-                      <p className="mb-3 text-sm font-normal text-gray-500 dark:text-gray-400 truncate">
-                        {item.descContent}
-                      </p>
-                    </div>
-                    <div className="flex flex-wrap items-center justify-between mx-4 mb-4 ">
-                      <div className="blogItem-author flex flex-wrap items-center">
-                        <div className="blogItem-authorPhoto">
-                          <img
-                            src={item.img}
-                            alt="avatar"
-                            className="mx-2 w-[40px] h-[40px] rounded-[50%] object-cover ml-2"
-                          />
+                <div>
+                  <div className="w-full m-5 flex justify-center items-center">
+                    <div className="w-80 bg-white rounded-lg transform transition-all hover:translate-y-1 duration-300 shadow-lg hover:shadow-xl">
+                      <img
+                        className="h-50 object-cover rounded-t-xl"
+                        src={item.image}
+                        alt=""
+                      />
+                      <div className="p-2 mx-2">
+                        <p className="text-[10px] md:text-[12px] font-semibold text-gray-500">
+                          {
+                            splitdate(item.dateCreated)
+                          }
+                        </p>
+                        <div className="flex justify-between items-center">
+                          <h2 className="font-bold text-lg py-1 text-textPrimary">
+                            {item.title}
+                          </h2>
                         </div>
-                        <div className="blogItem-authorDesc">
-                          <h6 className="text-xs font-semibold text-black">
+                        <p className="text-sm text-gray-600">
+                          {item.descContent}
+                        </p>
+                      </div>
+
+                      <div className="flex justify-between m-3 ">
+                        <div className="author flex justify-center items-center">
+                          <img
+                            className="w-[24px] rounded-full"
+                            src="https://static.vecteezy.com/system/resources/thumbnails/006/487/917/small_2x/man-avatar-icon-free-vector.jpg"
+                            alt="author"
+                          />
+                          <p className="text-gray-500 mx-1 font-semibold md:font-bold text-[8px] md:text-[12px]">
                             {item.author}
-                          </h6>
-                          <p className="text-xs font-semibold text-[#a9a9a9]">
-                            {item.releaseDate}
                           </p>
                         </div>
+                        <div className="relative flex items-center justify-center px-8 md:px-10 overflow-hidden font-semibold md:font-bold text-textSecondary transition duration-300 ease-out border-2 border-textSecondary rounded-full group">
+                          <span className="absolute flex items-center justify-center w-full h-full duration-300 -translate-x-full text-textSecondary group-hover:translate-x-0 ease">
+                            <BsFillArrowRightCircleFill />
+                          </span>
+
+                          <button
+                            href="#"
+                            className="text-[8px] md:text-[12px] absolute flex items-center justify-center w-full h-full text-textSecondary transition-all duration-300 transform group-hover:translate-x-full ease"
+                          >
+                            ReadMore
+                          </button>
+                        </div>
                       </div>
-                      <button
-                        onClick={() => handleDetail(item.id)}
-                        className="mx-2 w-5 h-4"
-                      >
-                        ➝
-                      </button>
-                    </div>
-                  </div>
-                </div> */}
-
-                <div className="bg-green-100 w-full min-h-screen flex justify-center items-center">
-                  <div className="w-80 p-2 bg-white rounded-xl transform transition-all hover:translate-y-2 duration-300 shadow-lg hover:shadow-2xl">
-                    <img
-                      className="h-50 object-cover rounded-xl"
-                      src="https://img.freepik.com/free-vector/gradient-mountain-landscape_52683-77407.jpg?w=1060&t=st=1669274509~exp=1669275109~hmac=4e1e55eceecef08020fa1b36e9633f11cf472b752dc1f95076debc8fc0773a84"
-                      alt=""
-                    />
-                    <div className="p-2">
-                      <h2 className="font-bold text-lg py-1">Title</h2>
-                      <h4 className="font-medium text-sm pb-3">
-                        Author - dd/mm/yy
-                      </h4>
-
-                      <p className="text-sm text-gray-600">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia natus provident fugit consectetur perspiciatis
-                        culpa laboriosam debitis delectus. Consequatur ratione
-                        nemo veritatis corrupti necessitatibus maxime
-                        exercitationem eum eos doloremque ad!
-                      </p>
-                    </div>
-
-                    <div className="m-2">
-                      <a
-                        role="button"
-                        href="#"
-                        className="text-white bg-green-400 px-3 py-1 rounded-md hover:bg-green-600"
-                      >
-                        Read more
-                      </a>
                     </div>
                   </div>
                 </div>

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import Layout from './Layout';
 
 const Register = () => {
   const [name, setName] = useState('');
@@ -29,9 +30,10 @@ const Register = () => {
       }
     }
   };
+  
 
   return (
-    <>
+    <Layout>
       {/* <section className="h-screen">
         <div className="px-6 h-full text-gray-800">
           <div className="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6">
@@ -213,7 +215,7 @@ const Register = () => {
           </div>
         </div>
       </div>
-    </>
+    </Layout>
   );
 };
 

@@ -7,6 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Logo from '/images/MentalHack.png';
 import Hero from '/images/Dokter.png';
 import { LoginUser, reset } from '../features/authSlice';
+import Layout from './Layout';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -59,7 +60,7 @@ const Login = () => {
   //   }
   // };
   return (
-    <div>
+    <Layout>
       <div className="mx-auto pt-24 pb-32 self-center">
         <div className="container flex mx-auto justify-items-center items-center py-1 px-4 sm:py-4 sm:px-16 md:py-8 md:px-32 bg-[#01A29D] rounded-sm shadow-lg lg:w-[1080px]">
           <div className="w-full">
@@ -122,7 +123,7 @@ const Login = () => {
           </div>
         </div>
       </div>
-    </div>
+    </Layout>
   );
 };
 

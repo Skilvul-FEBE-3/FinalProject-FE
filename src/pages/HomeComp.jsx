@@ -12,11 +12,11 @@ const HomeComp = () => {
   );
 
   useEffect(() => {
-    me();
-  }, [dispatch]);
-  const me = () => {
     dispatch(getMe());
-  };
+    // me();
+  }, [dispatch]);
+  // const me = () => {
+  // };
   useEffect(() => {
     if (user && user.role == 'admin') {
       navigate('/admin/dashboard');

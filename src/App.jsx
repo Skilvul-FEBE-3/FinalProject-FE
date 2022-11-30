@@ -7,7 +7,6 @@ import Login from './pages/Login';
 import Users from './pages/Admin/Users';
 import AdminDashboard from './pages/Admin/AdminDashboard';
 import HomeComp from './pages/HomeComp';
-import Register from './components/Register';
 import RequireLogin from './middleware/RequireLogin';
 import RequireAdmin from './middleware/RequireAdmin';
 import ListBlog from './pages/Blog/List';
@@ -18,6 +17,7 @@ import About from './pages/About/About';
 import DetailBLog from './pages/Blog/Detail';
 import DetailVideo from './pages/Video/Detail';
 import Home from './pages/Home';
+import Register from './pages/Register';
 // import Register from './pages/Register';
 
 function App() {
@@ -45,9 +45,9 @@ function App() {
           {/* user */}
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/blog" element={<ListBlog />} />
-          <Route path="/blog:id" element={<DetailBLog />}></Route>
+          <Route path="/blog/:id" element={<DetailBLog />}></Route>
           <Route path="/video" element={<ListVideo />} />
-          <Route path="/video:id" element={<DetailVideo />}></Route>
+          <Route path="/video/:id" element={<DetailVideo />}></Route>
           <Route path="/team" element={<About />} />
           <Route path="/test" element={<Test />} />
           {/* admin */}
