@@ -1,11 +1,12 @@
 import React from 'react';
+import Header from '../components/Header';
 import Navbar from '../components/Navbar';
 
 const Layout = ({ children }) => {
   return (
     <React.Fragment>
-      <Navbar />
-      <div className="mt-24 px-10">
+      <Header />
+      <div>
       {children}  
       </div>
     </React.Fragment>
