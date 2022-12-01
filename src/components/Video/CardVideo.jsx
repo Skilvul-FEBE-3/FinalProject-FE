@@ -51,6 +51,26 @@ function CardVideo() {
   };
   console.log(videos);
 
+  const splitDate = (date) => {
+    let splitT = date.split('T');
+    let splitStrip = splitT[0].split('-');
+    var months = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
+    ];
+    return `${splitStrip[2]}  ${months[splitStrip[1]]}  ${splitStrip[0]}`;
+  };
+
   return (
     <div>
       <section className="p-12 sm:p-auto">
@@ -94,7 +114,7 @@ function CardVideo() {
             <div className="card flex items-center my-10 mx-[6rem] p-2 bg-white lg:flex-row rounded-xl md:mx-[10rem] lg:mx-[14rem] drop-shadow-md transform transition-all hover:translate-y-2 hover:drop-shadow-xl">
               <img
                 className="thumbnail rounded-lg h-[120px] mx-auto sm:h-[150px]"
-                src={item.img}
+                src={`https://img.youtube.com/vi/${item.videoId}/mqdefault.jpg`}
                 alt="thumbnail"
               />
 
@@ -102,18 +122,15 @@ function CardVideo() {
               <div className="card-detail flex flex-col justify-between">
                 <div className="flex font-semibold text-gray-500 text-[8px] md:text-[12px] justify-between">
                   <h5 className="ml-3 p-1">#category</h5>
-                  <h6 className="mx-2 p-1">{item.releaseDate}</h6>
+                  <h6 className="mx-2 p-1">{splitDate(item.tanggalUpload)}</h6>
                 </div>
 
                 <div className="mx-4">
                   <h2 className="text-md font-semibold md:font-bold md:text-xl text-textPrimary">
-                    {item.tittle}
+                    {item.judul}
                   </h2>
                   <p className="font-normal text-[8px] text-gray-500 text-justify md:font-semibold md:text-[12px]">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Illum expedita nostrum at voluptates quam libero. Deleniti,
-                    mollitia culpa. Cumque magni perspiciatis deserunt veniam
-                    earum commodi et animi ex voluptate nobis.
+                    {item.deskripsi}
                   </p>
                 </div>
 
@@ -132,12 +149,12 @@ function CardVideo() {
 
                   {/* WATCH BUTTON */}
                   <div className="relative flex items-center justify-center px-8 md:px-12 overflow-hidden font-semibold md:font-bold text-bgPrimary transition duration-300 ease-out border-2 border-bgPrimary rounded-full group">
-                    <button
-                      onClick={() => handleDetail(item.id)}
+                    <Link
+                      to={`/video/${item.videoId}`}
                       className="absolute flex items-center justify-center w-full h-full text-white bg-bgPrimary duration-300 -translate-x-full group-hover:translate-x-0 ease"
                     >
                       <BsFillArrowRightCircleFill />
-                    </button>
+                    </Link>
 
                     <button className="text-[8px] md:text-[12px] absolute flex items-center justify-center w-full h-full text-bgPrimary transition-all duration-300 transform group-hover:translate-x-full ease">
                       Watch!
