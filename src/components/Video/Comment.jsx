@@ -21,7 +21,7 @@ function Comment() {
       date: "28 Feb 2022",
     },
     {
-      user: "Maulana",
+      user: "Luluk cantik",
       content:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus dolor commodi aspernatur explicabo hic quis minima magni eligendi, voluptate, earum natus rem optio quisquam? Earum ad nulla eveniet! Natus, rem.",
       date: "2 Des 2022",
@@ -35,7 +35,7 @@ function Comment() {
   ];
 
   return (
-    <div className="container mx-[28px]">
+    <div className="container ">
       <h2 className="font-bold text-textPrimary text-md px-10">
         Komentar Para Penonton
       </h2>

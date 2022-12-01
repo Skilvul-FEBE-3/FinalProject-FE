@@ -35,7 +35,7 @@ function Comment() {
   ];
 
   return (
-    <div className="container mx-[28px]">
+    <div className="container  ">
       <h2 className="font-bold text-textPrimary text-md px-10">
         Komentar Para Pembaca
       </h2>
@@ -48,7 +48,7 @@ function Comment() {
       />
       {data.map((item, index) => (
         <div className="comment-card" key={index}>
-          <div className="w-[97%] my-6 px-2">
+          <div className="w-full my-6 px-2">
             <div className="flex gap-2 items-center my-3 w-[100%] px-6 py-2 text-sm lg:text-md text-emerald-500 font-normal">
               <div className="bg-bgPrimary lg:py-1 px-3 lg:px-3 rounded-full text-white">
                 {item.user}
