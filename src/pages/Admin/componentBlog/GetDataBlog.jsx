@@ -19,9 +19,9 @@ function GetDataBlog({result}){
                         {i.subTitle}
                     </h2>
 
-                    <p className="font-semibold text-blue-800 italic my-4 leading-8 text-left">
+                    {/* <p className="font-semibold text-blue-800 italic my-4 leading-8 text-left">
                         {i.description}
-                    </p>
+                    </p> */}
                 </div>
             ))
                 
