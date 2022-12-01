@@ -16,7 +16,7 @@ function CardBlog() {
   const searchBlog = (e) => {
     e.preventDefault();
     axios(
-      `https://636ccb0d91576e19e315574a.mockapi.io/blog?tittle=${searching}`
+      `https://finalproject-be-production.up.railway.app/blog?title=${searching}`
     ).then((res) => {
       setBlogs(res.data);
     });
@@ -114,20 +114,20 @@ function CardBlog() {
                     <div className="w-80 bg-white rounded-lg transform transition-all hover:translate-y-1 duration-300 shadow-lg hover:shadow-xl">
                       <img
                         className="h-50 object-cover rounded-t-xl"
-                        src={item.img}
+                        src={item.image}
                         alt=""
                       />
                       <div className="p-2 mx-2">
                         <p className="text-[10px] md:text-[12px] font-semibold text-gray-500">
-                          {item.releaseDate}
+                          {splitdate(item.dateCreated)}
                         </p>
                         <div className="flex justify-between items-center">
                           <h2 className="font-bold text-lg py-1 text-textPrimary">
-                            {item.tittle}
+                            {item.title}
                           </h2>
                         </div>
                         <p className="text-sm text-gray-600">
-                          {item.descContent}
+                          {item.description}
                         </p>
                       </div>
 
@@ -150,12 +150,12 @@ function CardBlog() {
                             <BsFillArrowRightCircleFill />
                           </button>
 
-                          <button
-                            href="#"
+                          <Link
+                            to={`/blog/${item._id}`}
                             className="text-[8px] md:text-[12px] absolute flex items-center justify-center w-full h-full text-bgPrimary transition-all duration-300 transform group-hover:translate-x-full ease"
                           >
                             ReadMore
-                          </button>
+                          </Link>
                         </div>
                       </div>
                     </div>
