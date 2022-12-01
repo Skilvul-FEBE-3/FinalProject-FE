@@ -1,13 +1,9 @@
 import React from "react";
 
-function GetDataBlog(){
-    return <div>halo</div>
-}
-
-export default GetDataBlog;
-
-{/* <div className="grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 container mx-auto gap-10 my-12">
-            {ImagesData.map((i, index) => (
+function GetDataBlog({result}){
+    return(
+        <div className="grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 container mx-auto gap-10 my-12">
+            {result.map((i, index) => (
                 <div key={index} className="p-1 bg-white rounded flex-colo border border-blue-400">
                     <img 
                     className="w-full h-64 object-cover" 
@@ -30,4 +26,9 @@ export default GetDataBlog;
             ))
                 
             }
-        </div> */}
+        </div> 
+    )
+}
+
+export default GetDataBlog;
+

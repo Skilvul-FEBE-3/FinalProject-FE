@@ -5,6 +5,21 @@ import { PickerOverlay } from 'filestack-react';
 const AddBlog = () => {
   const [isPicker, setIsPicker] = useState(false);
   const [image, setImage] = useState("");
+  const [result, setResult] = useState([]);
+
+  const getData = async() =>{
+    try {
+      const res = await axios.get("https://finalproject-be-production.up.railway.app/blog")
+      console.log(res);
+      setResult(res.data)
+    } catch (error) {
+      alert(error.response.data.msg);
+    }
+  }
+
+  // useEffect(() =>{
+  //   getData();
+  // },[])
 
   return (
     <div className="bg-blue-50 px-4 flex justify-center items-center flex-col sm:px-0">
@@ -25,8 +40,6 @@ const AddBlog = () => {
           </button>
           )
         }
-
-       
 
         <input
           type="text"
@@ -78,7 +91,7 @@ const AddBlog = () => {
         </div>
       </form>
 
-      <GetDataBlog />
+      <GetDataBlog result={result}/>
     </div>
 
     // <div>
