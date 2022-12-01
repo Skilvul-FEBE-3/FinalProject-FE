@@ -1,108 +1,93 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import MentalHack from "../images/MentalHack.png";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import MentalHack from '/images/MentalHack.png';
+import Logo from '/images/MentalHack.png';
+
+import { BiUserCircle } from 'react-icons/bi';
 
 function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <div>
-      <nav className="bg-bgPrimary w-full shadow-xl">
-        {/* Desktop Menu */}
-        <div className="container mx-auto px-4">
-          <div className="flex justify-between">
-            <div className="flex space-x-7">
-              <div>
-                <a href="" className="flex items-center py-4 lg:px-2 px-0">
-                  <img src={MentalHack} alt="logo" />
-                </a>
-              </div>
-              {/* Primary Navbar Items */}
-              <div className="hidden md:flex flex-nowrap justify-around items-center py-1 px-2 text-[12px] sm:text-[16px] w-full sm:w-auto sm:mx-8 font-semibold text-textWhite">
-                <Link
-                  to={"/"}
-                  className="mx-2 mt-4 sm:mt-0 sm:mr-6 hover:font-bold"
-                >
-                  Beranda
-                </Link>
-                <Link
-                  to={"/blog"}
-                  className="mx-2 mt-4 sm:mt-0 sm:mr-6 hover:font-bold"
-                >
-                  Blogs
-                </Link>
-                <Link
-                  to={"/video"}
-                  className="mx-2 mt-4 sm:mt-0 sm:mr-6 hover:font-bold"
-                >
-                  Videos
-                </Link>
-                <Link
-                  to={"/team"}
-                  className="mx-2 mt-4 sm:mt-0 sm:mr-6 hover:font-bold"
-                >
-                  About Us
-                </Link>
-              </div>
+    <nav className="bg-bgPrimary shadow-xl">
+      <div>
+        <div className="flex flex-col lg:flex-row">
+          <div className="flex justify-between items-center border-b lg:border-b-0">
+            <div className="py-2 ">
+              <Link to={'/'}>
+                <img src={Logo} alt="" />
+              </Link>
             </div>
-
-            {/* Mobile menu button */}
-
-            <div className="md:hidden flex items-center">
-              <button className="outline-none mobile-menu-button">
+            <div className="px-2">
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="focus:outline text-white font-bold block lg:hidden"
+              >
                 <svg
-                  className="mr-4 w-6 h-6 text-textWhite hover:text-[#fff] scale-[1.2]"
-                  x-show="!showMenu"
+                  className="w-6 h-6"
+                  xmlns="http://www.w3.org/2000/svg"
                   fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
                   viewBox="0 0 24 24"
+                  strokeWidth="1.5"
                   stroke="currentColor"
                 >
-                  <path d="M4 6h16M4 12h16M4 18h16"></path>
+                  <path
+                    className={!isOpen ? 'block' : 'hidden'}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                  />
+                  <path
+                    className={isOpen ? 'block' : 'hidden'}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
                 </svg>
               </button>
             </div>
           </div>
-        </div>
-        {/* Mobile Menu */}
-        <div className="hidden mobile-menu bg-textSecondary">
-          <ul className="text-textWhite font-semibold">
-            <li className="active">
-              <Link
-                to={"/"}
-                className="block text-sm px-4 py-4 hover:bg-bgSekunder hover:text-textPrimary hover:font-bold transition duration-300 "
-              >
-                Beranda
+
+          <div
+            className={`${
+              isOpen ? 'block' : 'hidden'
+            } lg:flex flex-col lg:flex-row justify-between w-full text-white font-semibold1`}
+          >
+            <div className="flex flex-col lg:flex-row">
+              <Link to={'/dashboard'} className="p-4 hover:font-bold">
+                Home
               </Link>
-            </li>
-            <li>
-              <Link
-                to={"/blog"}
-                className="block text-sm px-4 py-4 hover:bg-bgSekunder hover:text-textPrimary hover:font-bold transition duration-300"
-              >
-                Blogs
+              <Link to={'/blog'} className="p-4 hover:font-bold">
+                Blog
               </Link>
-            </li>
-            <li>
-              <Link
-                to={"/video"}
-                className="block text-sm px-4 py-4 hover:bg-bgSekunder hover:text-textPrimary hover:font-bold transition duration-300"
-              >
-                Videos
+              <Link to={'/video'} className="p-4 hover:font-bold">
+                Video
               </Link>
-            </li>
-            <li>
-              <Link
-                to={"/team"}
-                className="block text-sm px-4 py-4 hover:bg-bgSekunder hover:text-textPrimary hover:font-bold transition duration-300"
-              >
+              <Link to={'/team'} className="p-4 hover:font-bold">
                 About Us
               </Link>
-            </li>
-          </ul>
+              <Link to={'/faq'} className="p-4 hover:font-bold">
+                FAQ
+              </Link>
+            </div>
+            <div className="mr-3 my-3 flex gap-3 flex-col items-baseline lg:flex-row">
+              <Link
+                className="px-5 border-2 border-white-500 hover:border-3 hover:font-bold rounded-lg"
+                to={'/login'}
+              >
+                Sign in
+              </Link>
+              <Link
+                className="px-4 border-2 border-white-500 hover:border-3 hover:font-bold rounded-lg"
+                to={'/register'}
+              >
+                Sign up
+              </Link>
+            </div>
+          </div>
         </div>
-      </nav>
-    </div>
+      </div>
+    </nav>
   );
 }
 
