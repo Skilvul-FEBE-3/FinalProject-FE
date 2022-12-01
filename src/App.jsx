@@ -11,7 +11,7 @@ import RequireLogin from './middleware/RequireLogin';
 import RequireAdmin from './middleware/RequireAdmin';
 import ListBlog from './pages/Blog/List';
 import Test from './pages/Test';
-import AddBlog from './pages/Admin/AddBlog';
+// import AddBlog from './pages/Admin/AddBlog';
 import ListVideo from './pages/Video/List';
 import About from './pages/About/About';
 import DetailBLog from './pages/Blog/Detail';
@@ -55,7 +55,7 @@ function App() {
           {/* admin */}
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
           <Route path="/admin/users" element={<Users />} />
-          <Route path="/admin/addblog" element={<AddBlog />} />
+          {/* <Route path="/admin/addblog" element={<AddBlog />} /> */}
         </Routes>
       </div>
     </BrowserRouter>
