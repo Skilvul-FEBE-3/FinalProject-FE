@@ -109,7 +109,8 @@ function CardBlog() {
           blogs.map((item, index) => (
             <div key={index} onClick={() => clickBlog(item)}>
               <div key={index} onClick={() => clickBlog(item)}>
-                <div>
+                <Link
+                            to={`/blog/${item._id}`}>
                   <div className="w-full m-5 flex justify-center items-center">
                     <div className="w-80 bg-white rounded-lg transform transition-all hover:translate-y-1 duration-300 shadow-lg hover:shadow-xl">
                       <img
@@ -158,7 +159,7 @@ function CardBlog() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </Link>
               </div>
             </div>
           ))

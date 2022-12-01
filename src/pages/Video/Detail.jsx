@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Comment from '../../components/Video/Comment';
+import Layout from '../Layout';
 
 function DetailVideo() {
   const { id } = useParams();
@@ -35,25 +36,45 @@ function DetailVideo() {
   //   setContent(response.data);
   // };
 
+  // const splitdate = (date) => {
+  //   let splitT = date.split('T');
+  //   let splitStrip = splitT[0].split('-');
+  //   var months = [
+  //     'January',
+  //     'February',
+  //     'March',
+  //     'April',
+  //     'May',
+  //     'June',
+  //     'July',
+  //     'August',
+  //     'September',
+  //     'October',
+  //     'November',
+  //     'December',
+  //   ];
+  //   return `${splitStrip[2]}  ${months[splitStrip[1]]}  ${splitStrip[0]}`;
+  // };
+
   return (
-    <div className="mx-auto">
+    <Layout className="mx-auto">
       <div>
         <div>
           <div className="mx:10 sm:mx-20 md:mx-60 px-5 pt-5 text-2xl sm:text-4xl font-bold text-textPrimary text-center">
-            {videos.tittle}
+            {videos.judul}
           </div>
           <div className="flex items-center justify-between mx-2 sm:mx-[273px] my-3 font-serif px-5 font-semibold text-sm sm:text-lg text-[#71717a]">
             <div>
               disini author
               {/* {videos.author} */}
             </div>
-            <div>{videos.tanggalUpload}</div>
+            <div>{(videos.tanggalUpload)}</div>
           </div>
           <div className="m-auto py-2 w-[100%] sm: flex flex-wrap justify-center">
             {/* <img src={videos.img} alt="" className="w-[90%] sm:w-[55%]" /> */}
             <iframe
-              width="560"
-              height="315"
+              width="55%"
+              height="390"
               src={`https://www.youtube.com/embed/${videos.videoId}`}
               title="YouTube video player"
               frameborder="0"
@@ -64,10 +85,7 @@ function DetailVideo() {
         </div>
         {/* {content.map((item, index) => ( */}
         <div className="mx-[10px]">
-          <h3 className="text-xl font-semibold text-textSecondary my-10 mx-16">
-            {/* {item.subtittle} */}
-            subtitle ini
-          </h3>
+          
           <p className="text-sm text-justify mt-4 my-10 mx-16">
             {videos.deskripsi}
           </p>
@@ -77,7 +95,7 @@ function DetailVideo() {
       <div>
         <Comment />
       </div>
-    </div>
+    </Layout>
   );
 }
 
