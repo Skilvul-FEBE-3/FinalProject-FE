@@ -34,7 +34,7 @@ function CardVideo() {
         },
       }
     );
-    setVideos(response.data);
+    setVideos(response.data.video);
     setIsLoading(false)
   };
 
