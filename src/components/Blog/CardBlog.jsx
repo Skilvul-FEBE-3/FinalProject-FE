@@ -141,12 +141,12 @@ function CardBlog() {
                           </p>
                         </div>
                         <div className="relative flex items-center justify-center px-8 md:px-10 overflow-hidden font-semibold md:font-bold text-bgPrimary transition duration-300 ease-out border-2 border-bgPrimary rounded-full group">
-                          <button
-                            onClick={() => handleDetail(item.id)}
+                          <Link
+                            to={`/blog/${item._id}`}
                             className="bg-bgPrimary absolute flex items-center justify-center w-full h-full duration-300 -translate-x-full text-white group-hover:translate-x-0 ease"
                           >
                             <BsFillArrowRightCircleFill />
-                          </button>
+                          </Link>
 
                           <Link
                             to={`/blog/${item._id}`}
