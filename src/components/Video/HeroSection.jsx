@@ -1,5 +1,5 @@
-import React from "react";
-import Menonton from "/images/menonton.png";
+import React from 'react';
+import Menonton from '/images/menonton.png';
 
 function HeroSection() {
   return (

@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import loading from "/images/loading2.gif";
-import axios from "axios";
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import loading from '/images/loading2.gif';
+import axios from 'axios';
 
 function DetailBlog() {
   const { id } = useParams();

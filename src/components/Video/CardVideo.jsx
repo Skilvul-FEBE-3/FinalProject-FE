@@ -1,22 +1,27 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { BsFillArrowRightCircleFill } from "react-icons/bs";
-import Loading from "/images/loading2.gif";
-import Empty from "/images/empty.gif";
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { BsFillArrowRightCircleFill } from 'react-icons/bs';
+import Loading from '/images/loading2.gif';
+import Empty from '/images/empty.gif';
 
 function CardVideo() {
   const navigation = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
-  const [searching, setSearching] = useState("");
+  const [searching, setSearching] = useState('');
   const [videos, setVideos] = useState([]);
 
   const searchVideo = (e) => {
     e.preventDefault();
     axios(
-      `https://636ccb0d91576e19e315574a.mockapi.io/blog?tittle=${searching}`
+      `https://finalproject-be-production.up.railway.app/video?judul=${searching}`,
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      }
     ).then((res) => {
-      setVideos(res.data);
+      setVideos(res.data.video);
       setIsLoading(false);
     });
   };
@@ -35,20 +40,20 @@ function CardVideo() {
       }
     );
     setVideos(response.data.video);
-    setIsLoading(false)
+    setIsLoading(false);
   };
 
   console.log(videos);
 
   const clickVideos = (item) => {
-    console.log("berhasil klik");
+    console.log('berhasil klik');
     console.log(item);
   };
   console.log(videos);
 
   return (
     <div>
-      <section className="p-12 sm:p-auto  bg-white">
+      <section className="p-12 sm:p-auto">
         <header className="w-full mx-auto text-center">
           <h1 className="font-bold text-2xl sm:text-4xl text-center text-[#006969]">
             Cari
@@ -78,7 +83,7 @@ function CardVideo() {
 
       {isLoading ? (
         <img src={Loading} alt="isLoading" className="h-40 sm:h-60 mx-auto" />
-      ) : !videos || videos == "" ? (
+      ) : !videos || videos == '' ? (
         <div className="flex justify-center font-mono font-semibold text-[#295454]">
           <img src={Empty} alt="isLoading" className="h-60 sm:h-80 mx-auto" />
         </div>
@@ -86,10 +91,10 @@ function CardVideo() {
         videos.map((item, index) => (
           <div key={index}>
             {/* CARD VIDEOS  */}
-            <div className="card flex my-10 mx-[6rem] p-2 bg-white lg:flex-row rounded-xl md:mx-[10rem] lg:mx-[14rem] drop-shadow-md transform transition-all hover:translate-y-2 hover:drop-shadow-xl">
+            <div className="card flex items-center my-10 mx-[6rem] p-2 bg-white lg:flex-row rounded-xl md:mx-[10rem] lg:mx-[14rem] drop-shadow-md transform transition-all hover:translate-y-2 hover:drop-shadow-xl">
               <img
                 className="thumbnail rounded-lg h-[120px] mx-auto sm:h-[150px]"
-                src={`https://img.youtube.com/vi/${item.videoId}/mqdefault.jpg`}
+                src={item.img}
                 alt="thumbnail"
               />
 
@@ -101,7 +106,7 @@ function CardVideo() {
                 </div>
 
                 <div className="mx-4">
-                  <h2 className="text-md font-semibold md:font-bold md:text-xl">
+                  <h2 className="text-md font-semibold md:font-bold md:text-xl text-textPrimary">
                     {item.tittle}
                   </h2>
                   <p className="font-normal text-[8px] text-gray-500 text-justify md:font-semibold md:text-[12px]">
@@ -117,26 +122,26 @@ function CardVideo() {
                   <div className="author flex justify-center items-center">
                     <img
                       className="w-[24px] rounded-full"
-                      src={item.img}
+                      src="https://static.vecteezy.com/system/resources/thumbnails/006/487/917/small_2x/man-avatar-icon-free-vector.jpg"
                       alt="author"
                     />
-                    <p className="mx-2 text-sky-500 font-semibold md:font-bold text-[8px]  md:text-[12px]">
+                    <p className="mx-2 text-gray-500 font-semibold md:font-bold text-[8px]  md:text-[12px]">
                       {item.author}
                     </p>
                   </div>
 
                   {/* WATCH BUTTON */}
-                  <div className="relative flex items-center justify-center px-8 md:px-12 overflow-hidden font-semibold md:font-bold text-blue-400 transition duration-300 ease-out border-2 border-blue-400 rounded-full group">
-                    <span className="absolute flex items-center justify-center w-full h-full text-blue-400 duration-300 -translate-x-full bg-white group-hover:translate-x-0 ease">
-                      <BsFillArrowRightCircleFill />
-                    </span>
-
-                    <Link
-                      to={`detail/${item.id}`}
-                      className="text-[8px] md:text-[12px] absolute flex items-center justify-center w-full h-full text-blue-400 transition-all duration-300 transform group-hover:translate-x-full ease"
+                  <div className="relative flex items-center justify-center px-8 md:px-12 overflow-hidden font-semibold md:font-bold text-bgPrimary transition duration-300 ease-out border-2 border-bgPrimary rounded-full group">
+                    <button
+                      onClick={() => handleDetail(item.id)}
+                      className="absolute flex items-center justify-center w-full h-full text-white bg-bgPrimary duration-300 -translate-x-full group-hover:translate-x-0 ease"
                     >
+                      <BsFillArrowRightCircleFill />
+                    </button>
+
+                    <button className="text-[8px] md:text-[12px] absolute flex items-center justify-center w-full h-full text-bgPrimary transition-all duration-300 transform group-hover:translate-x-full ease">
                       Watch!
-                    </Link>
+                    </button>
                   </div>
                 </div>
               </div>

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Loading from '/images/loading2.gif';
 import Empty from '/images/empty.gif';
 import { BsFillArrowRightCircleFill } from 'react-icons/bs';
@@ -51,13 +51,26 @@ function CardBlog() {
 
   const splitdate = (date) => {
     let splitT = date.split('T');
-    let splitStrip = splitT[0].split('-')
-    var months = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
-    return `${splitStrip[2]}  ${months[splitStrip[1]]}  ${splitStrip[0]}`
+    let splitStrip = splitT[0].split('-');
+    var months = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
+    ];
+    return `${splitStrip[2]}  ${months[splitStrip[1]]}  ${splitStrip[0]}`;
   };
   return (
     <div>
-      <section className="p-12 sm:p-auto  bg-green-100">
+      <section className="p-12 sm:p-auto">
         <header className="w-full mx-auto text-center">
           <h1 className="font-bold text-2xl sm:text-4xl text-center text-[#006969]">
             Cari
@@ -71,7 +84,7 @@ function CardBlog() {
             <div className="input-group relative flex flex-wrap items-stretch w-full mb-4">
               <form className="flex" type="submit" onSubmit={searchBlog}>
                 <input
-                  className="form-control form-control relative flex-auto min-w-0 block w-[250px] sm:w-[600px] lg:w-[800px] px-3 py-1.5 text-xs sm:text-base font-normal text-gray-700 bg-white bg-clip-padding border border-gray-200 rounded transition ease-in-out m-0 focus:text-black focus:bg-white focus:border-textSecondary focus:outline-none"
+                  className="form-control form-control relative flex-auto min-w-0 block w-[250px] sm:w-[600px] lg:w-[800px] px-3 py-1.5 text-xs sm:text-base font-normal text-gray-700 bg-white bg-clip-padding border border-gray-200 rounded transition ease-in-out m-0 focus:text-black focus:bg-white focus:border-bgPrimary focus:outline-none"
                   type="text"
                   placeholder="Cari disini..."
                   name="search"
@@ -101,18 +114,16 @@ function CardBlog() {
                     <div className="w-80 bg-white rounded-lg transform transition-all hover:translate-y-1 duration-300 shadow-lg hover:shadow-xl">
                       <img
                         className="h-50 object-cover rounded-t-xl"
-                        src={item.image}
+                        src={item.img}
                         alt=""
                       />
                       <div className="p-2 mx-2">
                         <p className="text-[10px] md:text-[12px] font-semibold text-gray-500">
-                          {
-                            splitdate(item.dateCreated)
-                          }
+                          {item.releaseDate}
                         </p>
                         <div className="flex justify-between items-center">
                           <h2 className="font-bold text-lg py-1 text-textPrimary">
-                            {item.title}
+                            {item.tittle}
                           </h2>
                         </div>
                         <p className="text-sm text-gray-600">
@@ -131,14 +142,17 @@ function CardBlog() {
                             {item.author}
                           </p>
                         </div>
-                        <div className="relative flex items-center justify-center px-8 md:px-10 overflow-hidden font-semibold md:font-bold text-textSecondary transition duration-300 ease-out border-2 border-textSecondary rounded-full group">
-                          <span className="absolute flex items-center justify-center w-full h-full duration-300 -translate-x-full text-textSecondary group-hover:translate-x-0 ease">
+                        <div className="relative flex items-center justify-center px-8 md:px-10 overflow-hidden font-semibold md:font-bold text-bgPrimary transition duration-300 ease-out border-2 border-bgPrimary rounded-full group">
+                          <button
+                            onClick={() => handleDetail(item.id)}
+                            className="bg-bgPrimary absolute flex items-center justify-center w-full h-full duration-300 -translate-x-full text-white group-hover:translate-x-0 ease"
+                          >
                             <BsFillArrowRightCircleFill />
-                          </span>
+                          </button>
 
                           <button
                             href="#"
-                            className="text-[8px] md:text-[12px] absolute flex items-center justify-center w-full h-full text-textSecondary transition-all duration-300 transform group-hover:translate-x-full ease"
+                            className="text-[8px] md:text-[12px] absolute flex items-center justify-center w-full h-full text-bgPrimary transition-all duration-300 transform group-hover:translate-x-full ease"
                           >
                             ReadMore
                           </button>

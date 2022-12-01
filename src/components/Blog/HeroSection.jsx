@@ -1,5 +1,5 @@
-import React from 'react'
-import Buku from "/images/buku.png";
+import React from 'react';
+import Buku from '/images/buku.png';
 
 function HeroSection() {
   return (
@@ -34,4 +34,4 @@ function HeroSection() {
   );
 }
 
-export default HeroSection
+export default HeroSection;
