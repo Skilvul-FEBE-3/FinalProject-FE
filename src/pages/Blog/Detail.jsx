@@ -78,7 +78,6 @@ function DetailBlog() {
               {blogs.description}
             </p>
           </div>
-        {/* ))} */}
       </div>
       <Comment />
     </div>

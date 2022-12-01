@@ -1,5 +1,8 @@
 import React from 'react';
+<<<<<<< HEAD
 import Comment from '../../components/Video/Comment';
+=======
+>>>>>>> 0931462edca80f51d81a0aaa844e353c28fed0c0
 
 function DetailVideo() {
   return (
@@ -28,7 +31,10 @@ function DetailVideo() {
           </div>
         ))}
       </div>
+<<<<<<< HEAD
       <Comment />
+=======
+>>>>>>> 0931462edca80f51d81a0aaa844e353c28fed0c0
     </div>
   );
 }
