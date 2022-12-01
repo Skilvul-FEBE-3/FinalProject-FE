@@ -143,14 +143,14 @@ function CardVideo() {
                       alt="author"
                     />
                     <p className="mx-2 text-gray-500 font-semibold md:font-bold text-[8px]  md:text-[12px]">
-                      {item.author}
+                      disini author
                     </p>
                   </div>
 
                   {/* WATCH BUTTON */}
                   <div className="relative flex items-center justify-center px-8 md:px-12 overflow-hidden font-semibold md:font-bold text-bgPrimary transition duration-300 ease-out border-2 border-bgPrimary rounded-full group">
                     <Link
-                      to={`/video/${item.videoId}`}
+                      to={`/video/${item._id}`}
                       className="absolute flex items-center justify-center w-full h-full text-white bg-bgPrimary duration-300 -translate-x-full group-hover:translate-x-0 ease"
                     >
                       <BsFillArrowRightCircleFill />

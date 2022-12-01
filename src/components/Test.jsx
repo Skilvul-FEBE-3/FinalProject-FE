@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import MentalHack from '/images/MentalHack.png';
-import Logo from '/images/MentalHack.png';
-
-import { BiUserCircle } from 'react-icons/bi';
+import Logo from '../images/MentalHack.png';
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,17 +21,18 @@ function Header() {
                 className="focus:outline text-white font-bold block lg:hidden"
               >
                 <svg
-                  className="w-6 h-6"
+                  className="w-5 h-5"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
-                  strokeWidth="1.5"
+                  stroke-width="1.5"
                   stroke="currentColor"
+                  class="w-6 h-6"
                 >
                   <path
                     className={!isOpen ? 'block' : 'hidden'}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
                     d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
                   />
                   <path

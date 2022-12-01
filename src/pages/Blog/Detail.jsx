@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import loading from '/images/loading2.gif';
 import axios from 'axios';
+import Comment from '../../components/Blog/Comment';
 
 function DetailBlog() {
   const { id } = useParams();
   const [isLoading, setisLoading] = useState(true);
   const [blogs, setBlogs] = useState([]);
-  const [dateCreated, setDateCreated] = useState('')
+  const [dateCreated, setDateCreated] = useState('');
   const [content, setContent] = useState([]);
 
   useEffect(() => {
@@ -62,23 +63,25 @@ function DetailBlog() {
             {dateCreated}
           </div>
           <div className="font-serif px-5 mb-3 italic text-center text-sm sm:text-lg">
-            siapa hayo
+            siapa hayo authornya
           </div>
           <div className="m-auto w-[80%] sm: flex flex-wrap justify-center">
             <img src={blogs.image} alt="" />
           </div>
         </div>
         {/* {content.map((item, index) => ( */}
-          <div className="mt-8 mx-[50px]">
-            <h3 className="text-xl font-semibold text-textSecondary my-10 mx-16">
-              {blogs.subTitle}
-            </h3>
-            <p className="text-sm text-justify mt-4 my-10 mx-16">
-              {blogs.description}
-            </p>
-          </div>
+        <div className="mt-8 mx-[50px]">
+          <h3 className="text-xl font-semibold text-textSecondary my-10 mx-16">
+            {blogs.subTitle}
+          </h3>
+          <p className="text-sm text-justify mt-4 my-10 mx-16">
+            {blogs.description}
+          </p>
+        </div>
         {/* ))} */}
       </div>
+
+      <Comment />
     </div>
   );
 }

@@ -126,9 +126,7 @@ function CardBlog() {
                             {item.title}
                           </h2>
                         </div>
-                        <p className="text-sm text-gray-600">
-                          {item.description}
-                        </p>
+                        <p className="text-sm text-gray-600">{item.subTitle}</p>
                       </div>
 
                       <div className="flex justify-between m-3 ">

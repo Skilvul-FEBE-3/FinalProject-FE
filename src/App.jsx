@@ -18,6 +18,7 @@ import DetailBLog from './pages/Blog/Detail';
 import DetailVideo from './pages/Video/Detail';
 import Home from './pages/Home';
 import Register from './pages/Register';
+import FAQ from './components/FAQ/FAQ';
 // import Register from './pages/Register';
 
 function App() {
@@ -49,6 +50,7 @@ function App() {
           <Route path="/video" element={<ListVideo />} />
           <Route path="/video/:id" element={<DetailVideo />}></Route>
           <Route path="/team" element={<About />} />
+          <Route path="/faq" element={<FAQ />} />
           <Route path="/test" element={<Test />} />
           {/* admin */}
           <Route path="/admin/dashboard" element={<AdminDashboard />} />

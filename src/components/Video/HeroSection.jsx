@@ -23,7 +23,7 @@ function HeroSection() {
             <br />
             <span className="text-center text-textSecondary mt-2">
               Kumpulan video kamu ada disini <br />
-              Coba scroll kebawah, mungkin ada bisa kamu dengar hari ini. ini.
+              Coba scroll kebawah, mungkin ada bisa kamu dengar hari ini.
             </span>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import  React from 'react'
 import { BsFillArrowDownCircleFill } from "react-icons/bs";
+import Layout from '../../pages/Layout';
 
 function FAQ() {
 
@@ -27,7 +28,7 @@ const data = [
 ]
 
   return (
-    <>
+    <Layout>
         <div className="container-faq  w-[40%] m-auto mt-[100px]">
 
           <h2 className='text-center text-2xl font-bold text-blue-400 mb-20'>Frequently Asked Quoestion <span className='underline underline-offset-8'>(FAQs)</span></h2>
@@ -67,7 +68,7 @@ const data = [
             </div> */}
 
         </div>
-    </>
+    </Layout>
   )
 }
 

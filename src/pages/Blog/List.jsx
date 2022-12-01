@@ -7,7 +7,9 @@ function ListBlog() {
   return (
     <Layout>
       <HeroSection />
-      <CardBlog />
+      <div className="mb-20">
+        <CardBlog />
+      </div>
     </Layout>
   );
 }
