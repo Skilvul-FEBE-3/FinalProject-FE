@@ -30,7 +30,6 @@ const Register = () => {
       }
     }
   };
-  
 
   return (
     <Layout>
@@ -148,7 +147,7 @@ const Register = () => {
                   <input
                     type="text"
                     placeholder="Name"
-                    className="text-lg px-2 py-1 rounded-xl w-full"
+                    className="text-lg text-black px-2 py-1 rounded-xl w-full"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                   />
@@ -161,7 +160,7 @@ const Register = () => {
                   <input
                     type="email"
                     placeholder="example@email.com"
-                    className="text-lg px-2 py-1 rounded-xl w-full"
+                    className="text-lg text-black px-2 py-1 rounded-xl w-full"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
@@ -174,7 +173,7 @@ const Register = () => {
                   <input
                     type="password"
                     placeholder="********"
-                    className="text-lg px-2 py-1 rounded-xl w-full"
+                    className="text-lg text-black px-2 py-1 rounded-xl w-full"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                   />
@@ -187,7 +186,7 @@ const Register = () => {
                   <input
                     type="password"
                     placeholder="********"
-                    className="text-lg px-2 py-1 rounded-xl w-full mb-4"
+                    className="text-lg text-black px-2 py-1 rounded-xl w-full mb-4"
                     value={confPassword}
                     onChange={(e) => setConfPassword(e.target.value)}
                   />
