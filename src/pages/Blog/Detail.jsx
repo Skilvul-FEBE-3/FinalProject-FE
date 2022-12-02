@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import loading from '/images/loading2.gif';
 import axios from 'axios';
 import Comment from '../../components/Blog/Comment';
+import Layout from "../Layout"
 
 function DetailBlog() {
   const { id } = useParams();
@@ -53,7 +54,7 @@ function DetailBlog() {
   };
 
   return (
-    <div className="mx-auto">
+    <Layout className="mx-auto">
       <div>
         <div className="mx-20 sm:mx-60 px-5 pt-5 text-2xl sm:text-4xl font-bold text-textPrimary text-center">
           {blogs.title}
@@ -82,7 +83,7 @@ function DetailBlog() {
       </div>
 
       <Comment />
-    </div>
+    </Layout>
   );
 }
 

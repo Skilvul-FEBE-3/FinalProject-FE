@@ -59,7 +59,7 @@ function Team() {
           <img src={Sofi} alt="" className="h-[200px] sm:h-[300px]" />
           <div className="">
             <p className="text-white text-2xl sm:text-4xl font-semibold">
-              Sofi
+              Luluk
             </p>
             <p className="text-white">20 tahun</p>
             <p className="text-white">Backend Web Developer</p>
@@ -103,8 +103,7 @@ function Team() {
             <p className="text-white">20 tahun</p>
             <p className="text-white">Backend Web Developer</p>
             <p className="text-white italic text-[12px] sm:text-[14px]">
-              "Kegagalan juga menyenangkan, hiduplah dengan kepercayaan bahwa
-              cobaan itu berguna untuk menempa diri sendiri"
+              "Apah apah haloh haloh kenapah kenapah , bebas aku mahh"
             </p>
           </div>
           <div className="text-2xl text-white items-center">
