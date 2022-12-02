@@ -9,7 +9,7 @@ function Register() {
         <div className="container flex mx-auto justify-items-center items-center py-1 px-4 sm:py-4 sm:px-16 md:py-8 md:px-3 rounded-sm shadow-lg lg:w-[1080px]">
           <div className="w-full">
             <div className="flex">
-              <div className="w-full lg:w-3/4 mt-12 mb-12 sm:mb-24 mx-4 px-6 py-2 sm:px-12 sm:py-4 rounded-xl bg-textSecondary text-white">
+              <div className="w-full lg:w-3/4 mt-12 mb-12 sm:mb-24 mx-4 px-6 py-2 sm:px-12 sm:py-4 rounded-xl bg-textSecondary">
                 <form action="">
                   <h1 className="text-4xl font-bold text-white  text-center mb-2">
                     Form Daftar
