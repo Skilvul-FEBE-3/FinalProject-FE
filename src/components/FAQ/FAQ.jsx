@@ -1,37 +1,29 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect } from 'react';
+import { useState } from 'react';
 import { BsFillArrowDownCircleFill } from 'react-icons/bs';
 import Layout from '../../pages/Layout';
 import heroFaq from '/images/14.png';
 
 function FAQ() {
-  const data = [
-    {
-      question: 'What Is Lorem Ipsum 1?',
-      answer:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus dolor commodi aspernatur explicabo hic quis minima magni eligendi, voluptate, earum natus rem optio quisquam? Earum ad nulla eveniet! Natus, rem.',
-    },
-    {
-      question: 'What Is Lorem Ipsum 2?',
-      answer:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus dolor commodi aspernatur explicabo hic quis minima magni eligendi, voluptate, earum natus rem optio quisquam? Earum ad nulla eveniet! Natus, rem.',
-    },
-    {
-      question: 'What Is Lorem Ipsum 3?',
-      answer:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus dolor commodi aspernatur explicabo hic quis minima magni eligendi, voluptate, earum natus rem optio quisquam? Earum ad nulla eveniet! Natus, rem.',
-    },
-    {
-      question: 'What Is Lorem Ipsum 4?',
-      answer:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus dolor commodi aspernatur explicabo hic quis minima magni eligendi, voluptate, earum natus rem optio quisquam? Earum ad nulla eveniet! Natus, rem.',
-    },
-    {
-      question: 'What Is Lorem Ipsum 5?',
-      answer:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus dolor commodi aspernatur explicabo hic quis minima magni eligendi, voluptate, earum natus rem optio quisquam? Earum ad nulla eveniet! Natus, rem.',
-    },
-  ];
+  const [faqs, setFaqs] = useState([]);
+  useEffect(() => {
+    getFaqs();
+  }, []);
 
+  const getFaqs = async () => {
+    const response = await axios.get(
+      'https://finalproject-be-production.up.railway.app/faq',
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      }
+    );
+    setFaqs(response.data.faqs);
+    setIsLoading(false);
+  };
+  
   return (
     <Layout>
       <div className=" container-faq  w-[40%] m-auto my-[60px]">
@@ -47,12 +39,14 @@ function FAQ() {
           </h2>
         </div>
 
-        {data.map((item, i) => (
+
+        {faqs.map((item, i) => (
           <div className="Question-Section relative" key={i}>
             <input
               type="checkbox"
               className="peer absolute top-0 inset-x-0 w-full z-10 h-[4rem] opacity-0 cursor-pointer"
             />
+
             <div className="accordion flex my-6 w-[100%] px-5 py-2 border-2 border-bgPrimary cursor-pointer rounded-full">
               <span className="icon text-[20px] text-textSecondary mr-3 transform transition-all ease-in duration-500">
                 <BsFillArrowDownCircleFill />
