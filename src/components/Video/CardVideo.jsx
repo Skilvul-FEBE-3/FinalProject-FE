@@ -68,7 +68,7 @@ function CardVideo() {
       'November',
       'December',
     ];
-    return `${splitStrip[2]}  ${months[splitStrip[1]]}  ${splitStrip[0]}`;
+    return `${splitStrip[2]}  ${months[splitStrip[1] - 1]}  ${splitStrip[0]}`;
   };
 
   return (
@@ -111,60 +111,60 @@ function CardVideo() {
         videos.map((item, index) => (
           <div key={index}>
             {/* CARD VIDEOS  */}
-            <Link to ={`/video/${item._id}`}>
-            <div className="card flex items-center my-10 mx-[6rem] p-2 bg-white lg:flex-row rounded-xl md:mx-[10rem] lg:mx-[14rem] drop-shadow-md transform transition-all hover:translate-y-2 hover:drop-shadow-xl">
-              <img
-                className="thumbnail rounded-lg h-[120px] mx-auto sm:h-[150px]"
-                src={`https://img.youtube.com/vi/${item.videoId}/mqdefault.jpg`}
-                alt="thumbnail"
-              />
+            <Link to={`/video/${item._id}`}>
+              <div className="card flex items-center my-10 mx-[6rem] p-2 bg-white lg:flex-row rounded-xl md:mx-[10rem] lg:mx-[14rem] drop-shadow-md transform transition-all hover:translate-y-2 hover:drop-shadow-xl">
+                <img
+                  className="thumbnail rounded-lg h-[120px] mx-auto sm:h-[150px]"
+                  src={`https://img.youtube.com/vi/${item.videoId}/mqdefault.jpg`}
+                  alt="thumbnail"
+                />
 
-              {/* TITLE & DESC  */}
-              <div className="card-detail flex flex-col justify-between">
-                <div className="flex font-semibold text-gray-500 text-[8px] md:text-[12px] justify-between">
-                  
-                  <h6 className="mx-2 px-2">{splitDate(item.tanggalUpload)}</h6>
-                </div>
+                {/* TITLE & DESC  */}
+                <div className="card-detail flex flex-col justify-between">
+                  <div className="flex font-semibold text-gray-500 text-[8px] md:text-[12px] justify-between">
+                    <h6 className="mx-2 px-2">
+                      {splitDate(item.tanggalUpload)}
+                    </h6>
+                  </div>
 
-                <div className="mx-4">
-                  <h2 className="text-md font-semibold md:font-bold md:text-xl text-textPrimary">
-                    {item.judul}
-                  </h2>
-                  <p className="font-normal text-[8px] text-gray-500 text-justify md:font-semibold md:text-[12px]">
-                    {item.deskripsi}
-                  </p>
-                </div>
-
-                {/* AUTHOR */}
-                <div className="flex justify-between mx-4 mt-3 mb-2">
-                  <div className="author flex justify-center items-center">
-                    <img
-                      className="w-[24px] rounded-full"
-                      src="https://static.vecteezy.com/system/resources/thumbnails/006/487/917/small_2x/man-avatar-icon-free-vector.jpg"
-                      alt="author"
-                    />
-                    <p className="mx-2 text-gray-500 font-semibold md:font-bold text-[8px]  md:text-[12px]">
-                      disini author
+                  <div className="mx-4">
+                    <h2 className="text-md font-semibold md:font-bold md:text-xl text-textPrimary">
+                      {item.judul}
+                    </h2>
+                    <p className="font-normal text-[8px] text-gray-500 text-justify md:font-semibold md:text-[12px]">
+                      {item.deskripsi}
                     </p>
                   </div>
 
-                  {/* WATCH BUTTON */}
-                  <div className="relative flex items-center justify-center px-8 md:px-12 overflow-hidden font-semibold md:font-bold text-bgPrimary transition duration-300 ease-out border-2 border-bgPrimary rounded-full group">
-                    
-                    <Link
-                      to={`/video/${item._id}`}
-                      className="absolute flex items-center justify-center w-full h-full text-white bg-bgPrimary duration-300 -translate-x-full group-hover:translate-x-0 ease"
-                    >
-                      <BsFillArrowRightCircleFill />
-                    </Link>
+                  {/* AUTHOR */}
+                  <div className="flex justify-between mx-4 mt-3 mb-2">
+                    <div className="author flex justify-center items-center">
+                      <img
+                        className="w-[24px] rounded-full"
+                        src="https://static.vecteezy.com/system/resources/thumbnails/006/487/917/small_2x/man-avatar-icon-free-vector.jpg"
+                        alt="author"
+                      />
+                      <p className="mx-2 text-gray-500 font-semibold md:font-bold text-[8px]  md:text-[12px]">
+                        disini author
+                      </p>
+                    </div>
 
-                    <button className="text-[8px] md:text-[12px] absolute flex items-center justify-center w-full h-full text-bgPrimary transition-all duration-300 transform group-hover:translate-x-full ease">
-                      Watch!
-                    </button>
+                    {/* WATCH BUTTON */}
+                    <div className="relative flex items-center justify-center px-8 md:px-12 overflow-hidden font-semibold md:font-bold text-bgPrimary transition duration-300 ease-out border-2 border-bgPrimary rounded-full group">
+                      <Link
+                        to={`/video/${item._id}`}
+                        className="absolute flex items-center justify-center w-full h-full text-white bg-bgPrimary duration-300 -translate-x-full group-hover:translate-x-0 ease"
+                      >
+                        <BsFillArrowRightCircleFill />
+                      </Link>
+
+                      <button className="text-[8px] md:text-[12px] absolute flex items-center justify-center w-full h-full text-bgPrimary transition-all duration-300 transform group-hover:translate-x-full ease">
+                        Watch!
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
             </Link>
           </div>
         ))
