@@ -100,7 +100,7 @@ function CardBlog() {
 
       <div className="flex flex-wrap justify-center">
         {isLoading ? (
-          <img src={Loading} alt="isLoading" className="h-40 sm:h-60 mx-auto" />
+          <img src={Loading} alt="isLoading" className="h-40 sm:h-60 mx-auto " />
         ) : !blogs || blogs == '' ? (
           <div className="flex justify-center font-mono font-semibold text-[#295454]">
             <img src={Empty} alt="isLoading" className="h-60 sm:h-80 mx-auto" />
@@ -114,7 +114,7 @@ function CardBlog() {
                   <div className="w-full m-5 flex justify-center items-center">
                     <div className="w-80 bg-white rounded-lg transform transition-all hover:translate-y-1 duration-300 shadow-lg hover:shadow-xl">
                       <img
-                        className="h-50 object-cover rounded-t-xl"
+                        className="h-50 object-fit: cover; rounded-t-xl "
                         src={item.image}
                         alt=""
                       />
