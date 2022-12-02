@@ -25,8 +25,7 @@ function Comment() {
             </div>
             <div className="mx-3 sm:mx-5 sm:my-5 ">
               <h1 className="text-xs sm:text-sm text-gray-500">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Voluptates tenetur cumque odio fugiat non, libero magni
+                Blognya bagus-bagus, penyampaiannya sangat sesuai untuk remaja.
               </h1>
             </div>
           </div>
@@ -38,13 +37,12 @@ function Comment() {
                 className="sm:w-7 lg:w-10 sm:h-7 lg:h-10 rounded-xl sm:rounded-full h-5 border-black bg-yellow"
               />
               <p className="text-[12px] sm:text-[16px] lg:text-lg">
-                @febrilasucia
+                @rehanbegitu_syulit
               </p>
             </div>
             <div className="mx-3 sm:mx-5 sm:my-5 ">
               <h1 className="text-xs sm:text-sm text-gray-500">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Voluptates tenetur cumque odio fugiat non, libero magni
+                Mungkin websitenya ditambahkan beberapa fitur kayak kuis sih.
               </h1>
             </div>
           </div>
@@ -56,13 +54,12 @@ function Comment() {
                 className="sm:w-7 lg:w-10 sm:h-7 lg:h-10 rounded-xl sm:rounded-full h-5 border-black bg-yellow"
               />
               <p className="text-[12px] sm:text-[16px] lg:text-lg">
-                @febrilasucia
+                @dwi_ptcintasejati
               </p>
             </div>
             <div className="mx-3 sm:mx-5 sm:my-5 ">
               <h1 className="text-xs sm:text-sm text-gray-500">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Voluptates tenetur cumque odio fugiat non, libero magni
+                Dengan website ini saya mengerti kebutuhan mental saya.
               </h1>
             </div>
           </div>
@@ -74,13 +71,12 @@ function Comment() {
                 className="sm:w-7 lg:w-10 sm:h-7 lg:h-10 rounded-xl sm:rounded-full h-5 border-black bg-yellow"
               />
               <p className="text-[12px] sm:text-[16px] lg:text-lg">
-                @febrilasucia
+                @luluk_canthik_celalu
               </p>
             </div>
             <div className="mx-3 sm:mx-5 sm:my-5 ">
               <h1 className="text-xs sm:text-sm text-gray-500">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Voluptates tenetur cumque odio fugiat non, libero magni
+                Videonya bagus bangett, nambah pengetahuan dan tips nya berguna banget buat aku yg introvert
               </h1>
             </div>
           </div>
