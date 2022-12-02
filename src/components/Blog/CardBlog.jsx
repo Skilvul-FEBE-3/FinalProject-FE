@@ -66,7 +66,7 @@ function CardBlog() {
       'November',
       'December',
     ];
-    return `${splitStrip[2]}  ${months[splitStrip[1]]}  ${splitStrip[0]}`;
+    return `${splitStrip[2]}  ${months[splitStrip[1] - 1]}  ${splitStrip[0]}`;
   };
   return (
     <div>
@@ -109,8 +109,7 @@ function CardBlog() {
           blogs.map((item, index) => (
             <div key={index} onClick={() => clickBlog(item)}>
               <div key={index} onClick={() => clickBlog(item)}>
-                <Link
-                            to={`/blog/${item._id}`}>
+                <Link to={`/blog/${item._id}`}>
                   <div className="w-full m-5 flex justify-center items-center">
                     <div className="w-80 bg-white rounded-lg transform transition-all hover:translate-y-1 duration-300 shadow-lg hover:shadow-xl">
                       <img
@@ -137,10 +136,10 @@ function CardBlog() {
                             src="https://static.vecteezy.com/system/resources/thumbnails/006/487/917/small_2x/man-avatar-icon-free-vector.jpg"
                             alt="author"
                           />
-                            <p className="text-gray-500 mx-1 font-semibold md:font-bold text-[8px] md:text-[12px]">
-                              {/* {item.createdBy} */}
-                              adsf
-                            </p>
+                          <p className="text-gray-500 mx-1 font-semibold md:font-bold text-[8px] md:text-[12px]">
+                            {/* {item.createdBy} */}
+                            adsf
+                          </p>
                         </div>
                         <div className="relative flex items-center justify-center px-8 md:px-10 overflow-hidden font-semibold md:font-bold text-bgPrimary transition duration-300 ease-out border-2 border-bgPrimary rounded-full group">
                           <Link
