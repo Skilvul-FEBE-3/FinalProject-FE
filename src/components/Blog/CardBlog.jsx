@@ -7,8 +7,6 @@ import { BsFillArrowRightCircleFill } from 'react-icons/bs';
 import { useDispatch, useSelector } from 'react-redux';
 
 function CardBlog() {
-  const navigation = useNavigate();
-  const dispatch = useDispatch();
   const [searching, setSearching] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [blogs, setBlogs] = useState([]);
@@ -43,10 +41,6 @@ function CardBlog() {
   const clickBlog = (item) => {
     console.log('berhasil klik');
     console.log(item);
-  };
-
-  const handleDetail = (id) => {
-    navigation(`/blog/${id}`);
   };
 
   const splitdate = (date) => {
@@ -137,8 +131,7 @@ function CardBlog() {
                             alt="author"
                           />
                           <p className="text-gray-500 mx-1 font-semibold md:font-bold text-[8px] md:text-[12px]">
-                            {/* {item.createdBy} */}
-                            adsf
+                            {item.createdBy.name}
                           </p>
                         </div>
                         <div className="relative flex items-center justify-center px-8 md:px-10 overflow-hidden font-semibold md:font-bold text-bgPrimary transition duration-300 ease-out border-2 border-bgPrimary rounded-full group">

@@ -1,38 +1,28 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 function Comment() {
-  const data = [
-    {
-      user: 'Raihan',
-      content:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus dolor commodi aspernatur explicabo hic quis minima magni eligendi, voluptate, earum natus rem optio quisquam? Earum ad nulla eveniet! Natus, rem.',
-      date: '20 Nov 2022',
-    },
-    {
-      user: 'Thobie',
-      content:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus dolor commodi aspernatur explicabo hic quis minima magni eligendi, voluptate, earum natus rem optio quisquam? Earum ad nulla eveniet! Natus, rem.',
-      date: '11 Mar 2022',
-    },
-    {
-      user: 'Nabil',
-      content:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus dolor commodi aspernatur explicabo hic quis minima magni eligendi, voluptate, earum natus rem optio quisquam? Earum ad nulla eveniet! Natus, rem.',
-      date: '28 Feb 2022',
-    },
-    {
-      user: 'Maulana',
-      content:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus dolor commodi aspernatur explicabo hic quis minima magni eligendi, voluptate, earum natus rem optio quisquam? Earum ad nulla eveniet! Natus, rem.',
-      date: '2 Des 2022',
-    },
-    {
-      user: 'Chandra',
-      content:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus dolor commodi aspernatur explicabo hic quis minima magni eligendi, voluptate, earum natus rem optio quisquam? Earum ad nulla eveniet! Natus, rem.',
-      date: '6 Jul 2022',
-    },
-  ];
+  const [isLoading, setIsLoading] = useState(true);
+  const [comments, setComments] = useState([]);
+  const { id } = useParams();
+  console.log(id);
+
+  useState(async () => {
+    const response = await axios.get(
+      `https://finalproject-be-production.up.railway.app/blog/${id}/comment`,
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      }
+    );
+    setComments(response.data.comment);
+    setIsLoading(false);
+  }, []);
+
+
+  console.log(comments);
 
   return (
     <div className="container  ">
@@ -46,14 +36,14 @@ function Comment() {
         value=""
         placeholder="Tuliskan komentar..."
       />
-      {data.map((item, index) => (
+      {comments.map((item, index) => (
         <div className="comment-card" key={index}>
           <div className="w-full my-6 px-2">
             <div className="flex gap-2 items-center my-3 w-[100%] px-6 py-2 text-sm lg:text-md text-emerald-500 font-normal">
               <div className="bg-bgPrimary lg:py-1 px-3 lg:px-3 rounded-full text-white">
-                {item.user}
+                {item.postedBy.name}
               </div>
-              <div className="text-gray-500 text-xs">{item.date}</div>
+              <div className="text-gray-500 text-xs">{item.datePosted}</div>
             </div>
 
             <div className="flex text-ms items-center mx-8 pr-10 sm:pr-0 my-4 text-justify sm:text-xs md:text-sm lg:text-md text-black">
