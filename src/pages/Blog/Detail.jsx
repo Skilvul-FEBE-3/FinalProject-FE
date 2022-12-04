@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import loading from '/images/loading2.gif';
 import axios from 'axios';
 import Comment from '../../components/Blog/Comment';
-import Layout from "../Layout"
+import Layout from '../Layout';
 
 function DetailBlog() {
   const { id } = useParams();
@@ -64,7 +64,7 @@ function DetailBlog() {
             {dateCreated}
           </div>
           <div className="font-serif px-5 mb-3 italic text-center text-sm sm:text-lg">
-            siapa hayo authornya
+            {/* {blogs.createdBy.name} */}
           </div>
           <div className="m-auto w-[80%] sm: flex flex-wrap justify-center">
             <img src={blogs.image} alt="" />
