@@ -25,7 +25,8 @@ function Header() {
 
   const logout = () => {
     localStorage.clear();
-    navigate('/')
+    navigate('/');
+    window.location.reload(false);
   };
 
   return (
