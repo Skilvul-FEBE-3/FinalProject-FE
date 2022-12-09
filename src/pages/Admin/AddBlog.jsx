@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import GetDataBlog from "./componentBlog/GetDataBlog";
-import { getData, postData } from "./APIBlog/Api"
+// import { getData, postData } from "./Api"
+import axios from 'axios';
 import { PickerOverlay } from 'filestack-react';
+import { addMe, addToken } from '../../redux/action/authAction';
+import { useDispatch} from 'react-redux';
+
 
 export default function AddBlog(){
   const [isPicker, setIsPicker] = useState(false);
@@ -12,13 +16,44 @@ export default function AddBlog(){
   const [subTitle, setSubTitle] = useState("");
   const [description, setDescription] = useState("");
 
-  const submithandler = (e) =>{
+  const submithandler = async (e) => {
     e.preventDefault()
-    !image
-      ? alert("Image require")
-      : postData({ title, image,subTitle, description, setPostDatas}); 
-    // console.log(`ImageUrl: ${image.filesUploaded[0].url},Title:${title},subTitle:${subTitle},Description:${description} `);
+    
+    try {
+      const dataPost ={
+        image: image.filesUploaded[0].url, 
+        title, 
+        subTitle, 
+        description
+      }
+      // const dispatch = useDispatch();
+      const res = await axios.post("https://finalproject-be-production.up.railway.app/blog", 
+      {headers: {origin: true}},{ token: localStorage.getItem('token') },dataPost)
+      addMe(res);
+      addToken(localStorage.getItem('token') );
+      console.log(res);
+      if (res){
+        setPostDatas(res.data)
+      }
+    } catch (error) {
+      console.log(error);
+    }
+    // !image
+    //   ? alert("Image require")
+    //   : postData({image,title,subTitle, description, setPostDatas}); 
+    //console.log(`ImageUrl: ${image.filesUploaded[0].url},Title:${title},subTitle:${subTitle},Description:${description} `);
   }
+
+
+const getData = async(setResult) =>{
+    try {
+      const res = await axios.get("https://finalproject-be-production.up.railway.app/blog")
+      console.log(res);
+      setResult(res.data)
+    } catch (error) {
+      alert(error.response.data.msg);
+    }
+ }
 
   useEffect(() => {
     getData(setResult);
@@ -54,7 +89,7 @@ export default function AddBlog(){
 
         <input
           type="text"
-          required
+          
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           placeholder="Title"
@@ -63,7 +98,7 @@ export default function AddBlog(){
 
         <input
           type="text"
-          required
+          
           value={subTitle}
           onChange={(e) => setSubTitle(e.target.value)}
           placeholder="subTitle"
@@ -72,7 +107,7 @@ export default function AddBlog(){
 
         <input
           type="text"
-          required
+          
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           placeholder="Description"
