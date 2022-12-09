@@ -33,7 +33,6 @@ function Comment() {
         className="text-sm flex border-b-2 my-6 mx-[2.5rem] justify-center items-center w-[90%] focus:outline-none"
         type="text"
         name="comment"
-        value=""
         placeholder="Tuliskan komentar..."
       />
       {comments.map((item, index) => (
