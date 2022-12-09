@@ -10,10 +10,10 @@ function HeroSection() {
             <img
               src={Otak}
               alt=""
-              className="mt-5 h-[230px] mx-auto sm:mx-2 sm:mb-0 sm:h-[300px]"
+              className="h-[230px] mx-auto sm:mx-2 sm:mb-0 sm:h-[300px]"
             />
           </div>
-          <div className="mt-3 sm:mt-22 lg:mt-24 justify-center text-center sm:text-center lg:text-left sm:-ml-10">
+          <div className="mt-3 sm:mt-22 lg:mt-10 justify-center text-center sm:text-center lg:text-left sm:-ml-10">
             <span className="font-bold text-5xl sm:text-[72px] text-white">
               MENTAL
             </span>

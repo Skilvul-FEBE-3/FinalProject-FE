@@ -1,12 +1,32 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import MentalHack from '/images/MentalHack.png';
 import Logo from '/images/MentalHack.png';
+import { FaUserCircle } from 'react-icons/fa';
 
 import { BiUserCircle } from 'react-icons/bi';
+import { useDispatch, useSelector } from 'react-redux';
+import { getMe } from '../features/authSlice';
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isAuthenticate, setIsAuthenticate] = useState(false);
+  const [profileToggle, setProfileToggle] = useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { user, isError, isSuccess, isLoading, message } = useSelector(
+    (state) => state.auth
+  );
+
+  useEffect(() => {
+    dispatch(getMe());
+  }, [dispatch]);
+  console.log(user);
+
+  const logout = () => {
+    localStorage.clear();
+    navigate('/')
+  };
 
   return (
     <nav className="bg-bgPrimary shadow-xl">
@@ -70,20 +90,56 @@ function Header() {
                 FAQ
               </Link>
             </div>
-            <div className="mr-3 my-3 flex gap-3 flex-col items-baseline lg:flex-row">
-              <Link
-                className="px-5 border-2 border-white-500 hover:border-3 hover:font-bold rounded-lg"
-                to={'/login'}
-              >
-                Sign in
-              </Link>
-              <Link
-                className="px-4 border-2 border-white-500 hover:border-3 hover:font-bold rounded-lg"
-                to={'/register'}
-              >
-                Sign up
-              </Link>
-            </div>
+            {isSuccess ? (
+              <div className="my-3 flex items-center lg:flex-row">
+                <Link className="hidden sm:hidden md:hidden lg:block">
+                  {user.name}
+                </Link>
+                <Link
+                  className="mx-5"
+                  onClick={() => setProfileToggle(!profileToggle)}
+                >
+                  <FaUserCircle className="text-3xl hover:text-textPrimary" />
+                  {profileToggle ? (
+                    <ul className="dropdown-menu min-w-max items-center  bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 m-0 bg-clip-padding border-none dropdown-menu fixed right-5">
+                      <li>
+                        <Link
+                          className="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                          href="#"
+                        >
+                          Profile
+                        </Link>
+                      </li>
+                      <li>
+                        <button
+                          onClick={logout}
+                          className="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                          href="#"
+                        >
+                          Logout
+                        </button>
+                      </li>
+                    </ul>
+                  ) : null}
+                </Link>
+                {/* <img width={24} src={'https://finalproject-be-production.up.railway.app/images/'+user.photo.split('/').pop()} alt="" /> */}
+              </div>
+            ) : !isSuccess ? (
+              <div className="mr-3 my-3 flex gap-3 flex-col items-baseline lg:flex-row">
+                <Link
+                  className="px-5 border-2 border-white-500 hover:border-3 hover:font-bold rounded-lg"
+                  to={'/login'}
+                >
+                  Sign in
+                </Link>
+                <Link
+                  className="px-4 border-2 border-white-500 hover:border-3 hover:font-bold rounded-lg"
+                  to={'/register'}
+                >
+                  Sign up
+                </Link>
+              </div>
+            ) : null}
           </div>
         </div>
       </div>
