@@ -14,13 +14,12 @@ function Comment() {
 
   const getComment = async () => {
     const response = await axios.get(
-      `http://localhost:5000/video/${id}/comment`
+      `https://finalproject-be-production.up.railway.app/video/${id}/comment`
     );
     setComments(response.data.data.comment);
     setIsLoading(false);
   };
 
-  
   return (
     <div className="container ">
       <h2 className="font-bold text-textPrimary text-md px-10">
@@ -39,7 +38,9 @@ function Comment() {
               <div className="bg-bgPrimary lg:py-1 px-3 lg:px-3 rounded-full text-white">
                 {item.postedBy.name}
               </div>
-              <div className="text-gray-500 text-xs">{splitDate(item.dateCreated)}</div>
+              <div className="text-gray-500 text-xs">
+                {splitDate(item.dateCreated)}
+              </div>
             </div>
 
             <div className="flex text-ms items-center mx-8 pr-10 sm:pr-0 my-4 text-justify sm:text-xs md:text-sm lg:text-md text-black">
