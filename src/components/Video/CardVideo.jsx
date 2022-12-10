@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { BsFillArrowRightCircleFill } from 'react-icons/bs';
 import Loading from '/images/loading2.gif';
 import Empty from '/images/empty.gif';
+import { splitDate } from '../../util/Helper';
 
 function CardVideo() {
   const navigation = useNavigate();
@@ -41,34 +42,6 @@ function CardVideo() {
     );
     setVideos(response.data.video);
     setIsLoading(false);
-  };
-
-  console.log(videos);
-
-  const clickVideos = (item) => {
-    console.log('berhasil klik');
-    console.log(item);
-  };
-  console.log(videos);
-
-  const splitDate = (date) => {
-    let splitT = date.split('T');
-    let splitStrip = splitT[0].split('-');
-    var months = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December',
-    ];
-    return `${splitStrip[2]}  ${months[splitStrip[1] - 1]}  ${splitStrip[0]}`;
   };
 
   return (

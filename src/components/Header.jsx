@@ -21,11 +21,11 @@ function Header() {
   useEffect(() => {
     dispatch(getMe());
   }, [dispatch]);
-  console.log(user);
 
   const logout = () => {
     localStorage.clear();
-    navigate('/')
+    navigate('/');
+    window.location.reload(false);
   };
 
   return (
@@ -92,14 +92,14 @@ function Header() {
             </div>
             {isSuccess ? (
               <div className="my-3 flex items-center lg:flex-row">
-                <Link className="hidden sm:hidden md:hidden lg:block">
+                <Link className="hidden sm:hidden md:hidden lg:block ">
                   {user.name}
                 </Link>
                 <Link
                   className="mx-5"
                   onClick={() => setProfileToggle(!profileToggle)}
                 >
-                  <FaUserCircle className="text-3xl hover:text-textPrimary" />
+                  <FaUserCircle className="text-3xl hover:text-yellow" />
                   {profileToggle ? (
                     <ul className="dropdown-menu min-w-max items-center  bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 m-0 bg-clip-padding border-none dropdown-menu fixed right-5">
                       <li>

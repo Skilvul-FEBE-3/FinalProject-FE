@@ -30,7 +30,6 @@ function DetailVideo() {
     setVideos(response.data.data);
   };
 
-  console.log(videos);
   // const getContent = async (id) => {
   //   const response = await axios.get(
   //     `https://636ccb0d91576e19e315574a.mockapi.io/blog/${id}/content`
@@ -78,9 +77,9 @@ function DetailVideo() {
               height="390"
               src={`https://www.youtube.com/embed/${videos.videoId}`}
               title="YouTube video player"
-              frameborder="0"
+              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
+              allowFullScreen
             ></iframe>
           </div>
         </div>
