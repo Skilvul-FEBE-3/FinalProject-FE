@@ -10,7 +10,6 @@ import HomeComp from './pages/HomeComp';
 import RequireLogin from './middleware/RequireLogin';
 import RequireAdmin from './middleware/RequireAdmin';
 import ListBlog from './pages/Blog/List';
-import Test from './pages/Test';
 // import AddBlog from './pages/Admin/AddBlog';
 import ListVideo from './pages/Video/List';
 import About from './pages/About/About';
@@ -51,12 +50,18 @@ function App() {
           <Route path="/video/:id" element={<DetailVideo />}></Route>
           <Route path="/team" element={<About />} />
           <Route path="/faq" element={<FAQ />} />
-          <Route path="/test" element={<Test />} />
           {/* admin */}
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
           <Route path="/admin/users" element={<Users />} />
           {/* <Route path="/admin/addblog" element={<AddBlog />} /> */}
         </Routes>
+        <div className="relative">
+          <div className="w-10 h-10 bg-yellow rounded-full bottom-5 fixed flex right-5 cursor-pointer">
+            <a href="#" className="text-xl m-auto">
+              🔝
+            </a>
+          </div>
+        </div>
       </div>
     </BrowserRouter>
   );
