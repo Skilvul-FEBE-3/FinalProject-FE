@@ -90,7 +90,7 @@ function Header() {
                 FAQ
               </Link>
             </div>
-            {isSuccess ? (
+            {isSuccess && isSuccess == true ? (
               <div className="my-3 flex items-center lg:flex-row">
                 <Link className="hidden sm:hidden md:hidden lg:block ">
                   {user.name}
