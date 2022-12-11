@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
       <div>
       {children}  
       </div>
-      <div className="h-[100px] sm:h-[300px]">
+      <div className="h-[100px] sm:h-[300px] flex flex-wrap items-end">
         <Footer />
       </div>
     </>
