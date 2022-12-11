@@ -4,6 +4,7 @@ import loading from '/images/loading2.gif';
 import axios from 'axios';
 import Comment from '../../components/Blog/Comment';
 import Layout from '../Layout';
+import { splitDate } from '../../util/Helper';
 
 function DetailBlog() {
   const { id } = useParams();
@@ -33,26 +34,6 @@ function DetailBlog() {
   //   setContent(response.data);
   // };
 
-  const splitDate = (date) => {
-    let splitT = date.split('T');
-    let splitStrip = splitT[0].split('-');
-    var months = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December',
-    ];
-    return `${splitStrip[2]}  ${months[splitStrip[1]]}  ${splitStrip[0]}`;
-  };
-
   return (
     <Layout className="mx-auto">
       <div>
@@ -61,7 +42,7 @@ function DetailBlog() {
         </div>
         <div>
           <div className="font-serif px-5 font-semibold text-sm sm:text-lg text-[#71717a] text-center mt-2">
-            {dateCreated}
+            {splitDate(dateCreated)}
           </div>
           <div className="font-serif px-5 mb-3 italic text-center text-sm sm:text-lg">
             {/* {blogs.createdBy.name} */}
