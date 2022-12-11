@@ -14,31 +14,27 @@ function CardBlog() {
 
   const searchBlog = (e) => {
     e.preventDefault();
-    axios(
-      `https://finalproject-be-production.up.railway.app/blog?title=${searching}`
-    ).then((res) => {
-      setBlogs(res.data);
-    });
+    axios(`${import.meta.env.VITE_BASE_URL}/blog?title=${searching}`).then(
+      (res) => {
+        setBlogs(res.data);
+      }
+    );
   };
 
   useEffect(() => {
     getBlogs();
   }, []);
-  
+
   const getBlogs = async () => {
-    const response = await axios.get(
-      `${import.meta.env.VITE_BASE_URL}/blog`,
-      {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`,
-        },
-      }
-    );
+    const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/blog`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+    });
     setBlogs(response.data);
     setIsLoading(false);
   };
 
-  
   return (
     <div>
       <section className="p-12 sm:p-auto">

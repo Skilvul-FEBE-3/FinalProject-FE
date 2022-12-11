@@ -17,7 +17,7 @@ function Comment() {
 
   const getComments = async () => {
     const response = await axios.get(
-      `https://finalproject-be-production.up.railway.app/video/${id}/comment`
+      `${import.meta.env.VITE_BASE_URL}/video/${id}/comment`
     );
     setComments(response.data.data.comment);
     setIsLoading(false);

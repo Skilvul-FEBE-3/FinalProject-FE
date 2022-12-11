@@ -19,7 +19,7 @@ function DetailVideo() {
 
   const getVideosById = async (id) => {
     const response = await axios.get(
-      `https://finalproject-be-production.up.railway.app/video/${id}`,
+      `${import.meta.env.VITE_BASE_URL}/video/${id}`,
       {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
@@ -36,8 +36,6 @@ function DetailVideo() {
   //   );
   //   setContent(response.data);
   // };
-
-
 
   const splitDate = (date) => {
     let splitT = date.split('T');
@@ -67,7 +65,6 @@ function DetailVideo() {
             {videos.judul}
           </div>
           <div className="flex items-center justify-center mx-2 sm:mx-[273px] my-3 font-serif px-5 font-semibold text-sm sm:text-lg text-[#71717a]">
-            
             <div>{dateCreated}</div>
           </div>
           <div className="m-auto py-2 w-[100%] sm: flex flex-wrap justify-center">
@@ -85,7 +82,6 @@ function DetailVideo() {
         </div>
         {/* {content.map((item, index) => ( */}
         <div className="mx-[10px]">
-          
           <p className="text-sm text-justify mt-4 my-10 mx-16">
             {videos.deskripsi}
           </p>

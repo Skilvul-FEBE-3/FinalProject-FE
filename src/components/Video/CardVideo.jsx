@@ -14,14 +14,11 @@ function CardVideo() {
 
   const searchVideo = (e) => {
     e.preventDefault();
-    axios(
-      `https://finalproject-be-production.up.railway.app/video?judul=${searching}`,
-      {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`,
-        },
-      }
-    ).then((res) => {
+    axios(`${import.meta.env.VITE_BASE_URL}/video?judul=${searching}`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+    }).then((res) => {
       setVideos(res.data.video);
       setIsLoading(false);
     });

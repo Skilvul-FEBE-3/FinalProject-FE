@@ -20,7 +20,7 @@ function DetailBlog() {
 
   const getBlogsById = async (id) => {
     const response = await axios.get(
-      `https://finalproject-be-production.up.railway.app/blog/${id}`
+      `${import.meta.env.VITE_BASE_URL}/blog/${id}`
     );
     setDateCreated(splitDate(response.data.data.dateCreated));
     setBlogs(response.data.data);

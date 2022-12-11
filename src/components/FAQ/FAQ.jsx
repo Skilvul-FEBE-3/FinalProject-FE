@@ -13,7 +13,7 @@ function FAQ() {
 
   const getFaqs = async () => {
     const response = await axios.get(
-      'https://finalproject-be-production.up.railway.app/faq',
+      `${import.meta.env.VITE_BASE_URL}/faq`,
       {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
