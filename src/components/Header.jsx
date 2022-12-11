@@ -130,13 +130,13 @@ function Header() {
                   className="px-5 border-2 border-white-500 hover:border-3 hover:font-bold rounded-lg"
                   to={'/login'}
                 >
-                  Sign in
+                  Masuk
                 </Link>
                 <Link
                   className="px-4 border-2 border-white-500 hover:border-3 hover:font-bold rounded-lg"
                   to={'/register'}
                 >
-                  Sign up
+                  Daftar
                 </Link>
               </div>
             ) : null}
