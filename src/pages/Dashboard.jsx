@@ -6,7 +6,6 @@ import Comment from '../components/Home/Comment';
 import HeroSection from '../components/Home/HeroSection';
 import HeroSection2 from '../components/Home/HeroSection2';
 import HeroSection3 from '../components/Home/HeroSection3';
-import Navbar from '../components/Navbar';
 import { getMe } from '../features/authSlice';
 import Layout from './Layout';
 

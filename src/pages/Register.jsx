@@ -15,7 +15,7 @@ const Register = () => {
     e.preventDefault();
     try {
       await axios.post(
-        'https://finalproject-be-production.up.railway.app/auth/register',
+        `${import.meta.env.VITE_BASE_URL}/auth/register`,
         {
           name,
           email,

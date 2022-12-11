@@ -5,6 +5,7 @@ import Loading from '/images/loading2.gif';
 import Empty from '/images/empty.gif';
 import { BsFillArrowRightCircleFill } from 'react-icons/bs';
 import { useDispatch, useSelector } from 'react-redux';
+import { splitDate } from '../../util/Helper';
 
 function CardBlog() {
   const [searching, setSearching] = useState('');
@@ -13,11 +14,11 @@ function CardBlog() {
 
   const searchBlog = (e) => {
     e.preventDefault();
-    axios(
-      `https://finalproject-be-production.up.railway.app/blog?title=${searching}`
-    ).then((res) => {
-      setBlogs(res.data);
-    });
+    axios(`${import.meta.env.VITE_BASE_URL}/blog?title=${searching}`).then(
+      (res) => {
+        setBlogs(res.data);
+      }
+    );
   };
 
   useEffect(() => {
@@ -25,43 +26,15 @@ function CardBlog() {
   }, []);
 
   const getBlogs = async () => {
-    const response = await axios.get(
-      'https://finalproject-be-production.up.railway.app/blog',
-      {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`,
-        },
-      }
-    );
+    const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/blog`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+    });
     setBlogs(response.data);
     setIsLoading(false);
   };
-  console.log(blogs);
 
-  const clickBlog = (item) => {
-    console.log('berhasil klik');
-    console.log(item);
-  };
-
-  const splitdate = (date) => {
-    let splitT = date.split('T');
-    let splitStrip = splitT[0].split('-');
-    var months = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December',
-    ];
-    return `${splitStrip[2]}  ${months[splitStrip[1] - 1]}  ${splitStrip[0]}`;
-  };
   return (
     <div>
       <section className="p-12 sm:p-auto">
@@ -94,7 +67,11 @@ function CardBlog() {
 
       <div className="flex flex-wrap justify-center">
         {isLoading ? (
-          <img src={Loading} alt="isLoading" className="h-40 sm:h-60 mx-auto " />
+          <img
+            src={Loading}
+            alt="isLoading"
+            className="h-40 sm:h-60 mx-auto "
+          />
         ) : !blogs || blogs == '' ? (
           <div className="flex justify-center font-mono font-semibold text-[#295454]">
             <img src={Empty} alt="isLoading" className="h-60 sm:h-80 mx-auto" />
@@ -113,7 +90,7 @@ function CardBlog() {
                       />
                       <div className="p-2 mx-2">
                         <p className="text-[10px] md:text-[12px] font-semibold text-gray-500">
-                          {splitdate(item.dateCreated)}
+                          {splitDate(item.dateCreated)}
                         </p>
                         <div className="flex justify-between items-center">
                           <h2 className="font-bold text-lg py-1 text-textPrimary">
