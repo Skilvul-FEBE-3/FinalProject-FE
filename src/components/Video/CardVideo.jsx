@@ -110,7 +110,7 @@ function CardVideo() {
                   <div className="flex justify-between mx-4 mt-3 mb-2">
                     <div className="author flex justify-center items-center">
                       <img
-                        className="w-[24px] rounded-full"
+                        className="w-[24px] rounded-full visible"
                         src="https://static.vecteezy.com/system/resources/thumbnails/006/487/917/small_2x/man-avatar-icon-free-vector.jpg"
                         alt="author"
                       />

@@ -2,19 +2,19 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Comment from '../../components/Video/Comment';
+import { splitDate } from '../../util/Helper';
 import Layout from '../Layout';
 
 function DetailVideo() {
   const { id } = useParams();
-  const [isLoading, setisLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [videos, setVideos] = useState([]);
   const [content, setContent] = useState([]);
   const [dateCreated, setDateCreated] = useState('');
 
   useEffect(() => {
     getVideosById(id);
-    // getContent(id);
-    setisLoading(false);
+    setIsLoading(false);
   }, []);
 
   const getVideosById = async (id) => {
@@ -28,33 +28,6 @@ function DetailVideo() {
     );
     setDateCreated(splitDate(response.data.data.tanggalUpload));
     setVideos(response.data.data);
-  };
-
-  // const getContent = async (id) => {
-  //   const response = await axios.get(
-  //     `https://636ccb0d91576e19e315574a.mockapi.io/blog/${id}/content`
-  //   );
-  //   setContent(response.data);
-  // };
-
-  const splitDate = (date) => {
-    let splitT = date.split('T');
-    let splitStrip = splitT[0].split('-');
-    var months = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December',
-    ];
-    return `${splitStrip[2]}  ${months[splitStrip[1]]}  ${splitStrip[0]}`;
   };
 
   return (
