@@ -30,7 +30,7 @@ function CardVideo() {
 
   const getVideo = async () => {
     const response = await axios.get(
-      'https://finalproject-be-production.up.railway.app/video',
+      `${import.meta.env.VITE_BASE_URL}/video`,
       {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
